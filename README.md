@@ -4,4 +4,4 @@ Documentações
 
 ## Lista de API
 
-- [AGNU](docs/agnu/README.md)
+- [AGNU](agnu/README.md)
