@@ -61,11 +61,12 @@ O token de acesso é válido por 24 horas e seu payload será:
 ```json
 {
   "exp": 1234567890,
+  "iss": "sindireceita.org.br",
   "dados": {
     "cpf": "00000000191",
     "nome": "Nome do usuário",
     "unidadeSindical": {
-      "codigo": "00000000191",
+      "id": "65083027-c978-498d-974b-9ee04baf7b35",
       "nome": "Nome da unidade sindical"
     }
   }
@@ -96,12 +97,12 @@ Retorna a lista de AGNU abertas.
 {
   "mensagem": "texto a ser exibido ao usuário",
   "dados":   [{
-    "id": 345,
+    "id": "65083027-c974-498d-974b-9ee04baf7b58",
     "nome": "Nome da AGNU",
     "inicio": "2019-01-01 12:34:45",
     "fim": "2019-01-03 12:34:45",
     "unidadeSindical": {
-      "id": 65,
+      "id": "65083027-c978-498d-974b-9ee04baf7b35",
       "nome": "Nome da unidade sindical"
     }
   }]
@@ -122,11 +123,11 @@ Retorna a lista de perguntas da AGNU.
 {
   "mensagem": "texto a ser exibido ao usuário",
   "dados": [{
-    "id": 123,
+    "id": "65083027-c974-498d-974b-9ee04baf7b58",
     "pergunta": "Texto da pergunta",
     "tipo": 1,
-    "respostas": [{
-      "id": 456,
+    "opcoes": [{
+      "id": "65083027-c974-498d-974b-9ee04baf7b58",
       "resposta": "Texto da resposta"
     }]
   }]
@@ -137,7 +138,7 @@ Retorna a lista de perguntas da AGNU.
 - `dados`: Dados da pergunta
 - `tipo`: Tipo da pergunta. 1 para escolha única, 2 para múltipla escolha
 
-### POST /pergunta/responder
+### POST /resposta
 
 Responde uma pergunta da AGNU.
 
@@ -145,8 +146,8 @@ Responde uma pergunta da AGNU.
 
 ```json
 {
-  "pergunta": 123,
-  "respostas": [456]
+  "pergunta": "65083027-c974-498d-974b-9ee04baf7b58",
+  "respostas": ["65083027-c974-498d-974b-9ee04baf7b58"]
 }
 ```
 
@@ -163,7 +164,7 @@ Responde uma pergunta da AGNU.
 
 - `mensagem`: Texto a ser exibido ao usuário
 
-### GET /pergunta/respostas
+### GET /agnu/{id}/resposta
 
 Retorna a lista de respostas do usuário.
 
@@ -174,12 +175,12 @@ Retorna a lista de respostas do usuário.
   "mensagem": "texto a ser exibido ao usuário",
   "dados": [{
     "pergunta": {
-      "id": 123,
+      "id": "65083027-c974-498d-974b-9ee04baf7b58",
       "pergunta": "Texto da pergunta",
       "tipo": 1
     },
     "respostas": [{
-      "id": 456,
+      "id": "65083027-c974-498d-974b-9ee04baf7b58",
       "resposta": "Texto da resposta"
     }]
   }]
@@ -189,7 +190,7 @@ Retorna a lista de respostas do usuário.
 - `mensagem`: Texto a ser exibido ao usuário
 - `dados`: Dados da resposta
 
-### PUT /votacao/confirmar
+### PUT /agnu/{id}/confirmar
 
 Confirma a votação do usuário.
 
