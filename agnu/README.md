@@ -198,7 +198,9 @@ Confirma a votação do usuário.
 
 ```json
 {
-  "mensagem": "texto a ser exibido ao usuário",
-  "validacao": "código de validação"
+  "dados": {
+    "validacao": "código de validação"
+  },
+  "mensagem": "texto a ser exibido ao usuário"
 }
 ```
