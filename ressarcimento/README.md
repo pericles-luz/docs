@@ -174,17 +174,18 @@ Aprova uma requisição.
 }
 ```
 
-#### JSON de Retorno
+### PUT /requests/deny
+
+Reprova uma requisição.
+
+#### JSON de entrada
 
 ```json
 {
-  "mensage": "texto a ser exibido ao usuário"
+  "requestID": "65083027-c978-498d-974b-9ee04baf7b35",
+  "note": "Não cabe ressarcimento de entrada em cinema"
 }
 ```
-
-### PUT /requests/{id}/deny
-
-Reprova uma requisição.
 
 #### JSON de Retorno
 
