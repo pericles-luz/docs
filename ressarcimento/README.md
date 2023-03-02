@@ -517,12 +517,12 @@ Retorna as cidades cadastradas.
 {
   "data": [
     {
-      "cityID": 1,
+      "id": 1,
       "name": "São Paulo",
       "state": "SP"
     },
     {
-      "cityID": 2,
+      "id": 2,
       "name": "Rio de Janeiro",
       "state": "RJ"
     }
@@ -539,7 +539,7 @@ Retorna os detalhes de uma cidade.
 ```json
 {
   "data": {
-    "cityID": 1,
+    "id": 1,
     "name": "São Paulo",
     "state": "SP"
   }
@@ -555,7 +555,7 @@ Retorna as contas correntes cadastradas para o usuário.
 ```json
 {
   "data": [{
-    "accountID": "uuidv4",
+    "id": "uuidv4",
     "bankName": "Banco do Brasil",
     "number": "000001",
   }]
@@ -571,7 +571,7 @@ Retorna os detalhes de uma conta corrente.
 ```json
 {
   "data": {
-    "accountID": "uuidv4",
+    "id": "uuidv4",
     "bankName": "Banco do Brasil",
     "bank": "001",
     "branch": "0001",
