@@ -388,46 +388,224 @@ Adiciona um anexo a um item de requisição.
 
 Remove um item de requisição.
 
+#### JSON de retorno
+
+```json
+{
+  "mensage": "texto a ser exibido ao usuário"
+}
+```
+
 ### DELETE /requests/items/attachment/{id}
 
 Remove um anexo de um item de requisição.
 
-### PUT /requests/items/{id}
+#### JSON de retorno
+
+```json
+{
+  "mensage": "texto a ser exibido ao usuário"
+}
+```
+
+### PUT /requests/items
 
 Atualiza um item de requisição.
 
-### POST /requests/{id}/assinarsign
+#### JSON de entrada
+
+```json
+{
+  "requestItemID": "65083027-c978-498d-974b-9ee04baf7b35",
+  "dailyType": 1,
+  "originID": 1,
+  "destinationID": 2,
+  "start": "2017-01-01",
+  "finish": "2017-01-02",
+  "description": "trabalho parlamentar",
+  "amount": 10.00,
+  "costCenterID": 1
+}
+```
+
+- `dailyType` (obrigatório para tipo 1): Tipo de diária a ser considerada
+- `originID` (obrigatório para tipo 1 e 3): ID da cidade de origem
+- `destinationID` (obrigatório para tipo 1 e 3): ID da cidade de destino
+- `start` (obrigatório): Data de início ou de acontecimento do item
+- `finish` (obrigatório para tipo 1): Data de término do item
+- `description` (obrigatório para 1 e 2): Descrição do item
+- `amount` (obrigatório para tipo 2): Valor do ressarcimento
+- `costCenterID` (obrigatório): ID do centro de custo
+
+
+#### JSON de retorno
+
+```json
+{
+  "mensage": "texto a ser exibido ao usuário"
+}
+```
+
+### PUT /requests/sign
 
 Assina uma requisição.
+
+#### JSON de entrada
+
+```json
+{
+  "requestID": "65083027-c978-498d-974b-9ee04baf7b35",
+  "signature": "123456
+}
+```
+
+- `requestID` (obrigatório): ID da requisição
+- `signature` (obrigatório): Assinatura enviada ao usuário
+
+#### JSON de retorno
+
+```json
+{
+  "mensage": "texto a ser exibido ao usuário"
+}
+```
 
 ### GET /cities
 
 Retorna as cidades cadastradas.
 
+#### JSON de retorno
+
+```json
+{
+  "data": [
+    {
+      "cityID": 1,
+      "name": "São Paulo",
+      "state": "SP"
+    },
+    {
+      "cityID": 2,
+      "name": "Rio de Janeiro",
+      "state": "RJ"
+    }
+  ]
+}
+```
+
 ### GET /cities/{id}
 
 Retorna os detalhes de uma cidade.
+
+#### JSON de retorno
+
+```json
+{
+  "data": {
+    "cityID": 1,
+    "name": "São Paulo",
+    "state": "SP"
+  }
+}
+```
 
 ### GET /accounts
 
 Retorna as contas correntes cadastradas para o usuário.
 
+#### JSON de retorno
+
+```json
+{
+  "data": [{
+    "accountID": "uuidv4",
+    "bankName": "Banco do Brasil",
+    "number": "000001",
+  }]
+}
+```
+
 ### GET /accounts/{id}
 
 Retorna os detalhes de uma conta corrente.
+
+#### JSON de retorno
+
+```json
+{
+  "data": {
+    "accountID": "uuidv4",
+    "bankName": "Banco do Brasil",
+    "bank": "001",
+    "branch": "0001",
+    "branchDV": "0",
+    "number": "000001",
+    "digit": "0"
+  }
+}
+```
 
 ### GET /daily
 
 Retorna os valores de diárias cadastradas para o usuário.
 
-### GET /daily/{id}
+#### JSON de retorno
 
-Retorna os detalhes de uma diária.
+```json
+{
+  "data": [
+    {
+      "dailyID": 1,
+      "dailyType": 1,
+      "value": 100.00
+    },
+    {
+      "dailyID": 2,
+      "dailyType": 2,
+      "value": 200.00
+    }
+  ]
+}
+```
 
 ### GET /payer-unity
 
 Retorna as unidades pagadoras cadastradas.
 
+#### JSON de retorno
+
+```json
+{
+  "data": [
+    {
+      "unionUnityID": "uuidv4",
+      "name": "Unidade pagadora 1"
+    },
+    {
+      "unionUnityID": "uuidv4",
+      "name": "Unidade pagadora 2"
+    }
+  ]
+}
+```
+
 ### GET /cost-center
 
 Retorna os centros de custo cadastrados para o autorizador.
+
+#### JSON de retorno
+
+```json
+{
+  "data": [
+    {
+      "costCenterID": 1,
+      "name": "Centro de custo 1"
+    },
+    {
+      "costCenterID": 2,
+      "name": "Centro de custo 2"
+    }
+  ]
+}
+```
