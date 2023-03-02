@@ -455,7 +455,7 @@ Assina uma requisição.
 ```json
 {
   "requestID": "65083027-c978-498d-974b-9ee04baf7b35",
-  "signature": "123456
+  "signature": "123456"
 }
 ```
 
@@ -556,12 +556,14 @@ Retorna os valores de diárias cadastradas para o usuário.
   "data": [
     {
       "dailyID": 1,
-      "dailyType": 1,
+      "type": 1,
+      "name": "Diária parcial",
       "value": 100.00
     },
     {
       "dailyID": 2,
-      "dailyType": 2,
+      "type": 2,
+      "name": "Diária integral",
       "value": 200.00
     }
   ]
