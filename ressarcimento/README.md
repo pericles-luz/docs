@@ -342,14 +342,14 @@ Adiciona um item a uma requisição.
 }
 ```
 - `type` (obrigatório): Tipo de item. 1 para diária, 2 para ressarcimento, 3 para auxílio deslocamento.
-- `dailyType` (obrigatório para tipo 1): Tipo de diária a ser considerada
-- `originID` (obrigatório para tipo 1 e 3): ID da cidade de origem
-- `destinationID` (obrigatório para tipo 1 e 3): ID da cidade de destino
+- `dailyType` (obrigatório para tipo 1): Tipo de diária a ser considerada (buscar tipos em `/dailyTypes`)
+- `originID` (obrigatório para tipo 1 e 3): ID da cidade de origem (buscar cidades em `/cities`)
+- `destinationID` (obrigatório para tipo 1 e 3): ID da cidade de destino (buscar cidades em `/cities`)
 - `start` (obrigatório): Data de início ou de acontecimento do item
 - `finish` (obrigatório para tipo 1): Data de término do item
 - `description` (obrigatório para 1 e 2): Descrição do item
 - `amount` (obrigatório para tipo 2): Valor do ressarcimento
-- `costCenterID` (obrigatório): ID do centro de custo
+- `costCenterID` (obrigatório): ID do centro de custo (buscar centros de custo em `/costCenters`)
 
 #### JSON de retorno
 
@@ -362,35 +362,29 @@ Adiciona um item a uma requisição.
 }
 ```
 
-#### JSON de entrada - Auxílio deslocamento
-
-```json
-{
-  "type": 3,
-  "originID": 1,
-  "destinationID": 2,
-  "start": "2017-01-01",
-  "description": "trabalho parlamentar",
-  "costCenterID": 1
-}
-```
-
-#### JSON de entrada - Ressarcimento
-
-```json
-{
-  "type": 2,
-  "originID": 1,
-  "start": "2017-01-01",
-  "description": "estacionamento",
-  "costCenterID": 1,
-  "amount": 10.00
-}
-```
-
 ### POST /requests/items/{id}/attachment
 
 Adiciona um anexo a um item de requisição.
+
+#### JSON de entrada
+
+```json
+{
+  "requestItemID": "65083027-c978-498d-974b-9ee04baf7b35",
+  "file": "base64"
+}
+```
+
+#### JSON de retorno
+
+```json
+{
+  "data": {
+    "requestItemAttachmentID": "uuidv4"
+  },
+  "mensage": "texto a ser exibido ao usuário"
+}
+```
 
 ### DELETE /requests/items/{id}
 
@@ -436,15 +430,29 @@ Atualiza um item de requisição.
 }
 ```
 
-- `dailyType` (obrigatório para tipo 1): Tipo de diária a ser considerada
-- `originID` (obrigatório para tipo 1 e 3): ID da cidade de origem
-- `destinationID` (obrigatório para tipo 1 e 3): ID da cidade de destino
+- `dailyType` (obrigatório para tipo 1): Tipo de diária a ser considerada (buscar tipos em `/dailyTypes`)
+- `originID` (obrigatório para tipo 1 e 3): ID da cidade de origem (buscar cidades em `/cities`)
+- `destinationID` (obrigatório para tipo 1 e 3): ID da cidade de destino (buscar cidades em `/cities`)
 - `start` (obrigatório): Data de início ou de acontecimento do item
 - `finish` (obrigatório para tipo 1): Data de término do item
 - `description` (obrigatório para 1 e 2): Descrição do item
 - `amount` (obrigatório para tipo 2): Valor do ressarcimento
-- `costCenterID` (obrigatório): ID do centro de custo
+- `costCenterID` (obrigatório): ID do centro de custo (buscar centros de custo em `/costCenters`)
 
+
+#### JSON de retorno
+
+```json
+{
+  "mensage": "texto a ser exibido ao usuário"
+}
+```
+
+### GET /requests/{id}/signing-code/{media}
+
+Solicita o código de assinatura de uma requisição. O código será enviado ao usuário conforme o meio definido em `media`.
+
+- `media` (obrigatório): Meio de envio do código. 1 para SMS, 2 para e-mail.
 
 #### JSON de retorno
 
@@ -477,6 +485,26 @@ Assina uma requisição.
   "mensage": "texto a ser exibido ao usuário"
 }
 ```
+
+### GET /requests/{id}/history
+
+Retorna o histórico de uma requisição.
+
+#### JSON de retorno
+
+```json
+{
+  "data": [
+    {
+      "requestHistoryID": "uuidv4",
+      "requestID": "uuidv4",
+      "dateTime": "2020-02-20 20:02:00",
+      "action": "Ação realizada",
+      "notes": "Observações",
+      "actor": "Nome do usuário que realizou a ação"
+    }
+  ]
+}
 
 ### GET /cities
 
@@ -553,7 +581,7 @@ Retorna os detalhes de uma conta corrente.
 }
 ```
 
-### GET /daily
+### GET /dailyTypes
 
 Retorna os valores de diárias cadastradas para o usuário.
 
@@ -563,13 +591,13 @@ Retorna os valores de diárias cadastradas para o usuário.
 {
   "data": [
     {
-      "dailyID": 1,
+      "id": 1,
       "type": 1,
       "name": "Diária parcial",
       "value": 100.00
     },
     {
-      "dailyID": 2,
+      "id": 2,
       "type": 2,
       "name": "Diária integral",
       "value": 200.00
@@ -578,7 +606,7 @@ Retorna os valores de diárias cadastradas para o usuário.
 }
 ```
 
-### GET /payer-unity
+### GET /payer-unities
 
 Retorna as unidades pagadoras cadastradas.
 
@@ -588,18 +616,18 @@ Retorna as unidades pagadoras cadastradas.
 {
   "data": [
     {
-      "unionUnityID": "uuidv4",
+      "id": "uuidv4",
       "name": "Unidade pagadora 1"
     },
     {
-      "unionUnityID": "uuidv4",
+      "id": "uuidv4",
       "name": "Unidade pagadora 2"
     }
   ]
 }
 ```
 
-### GET /cost-center
+### GET /cost-centers
 
 Retorna os centros de custo cadastrados para o autorizador.
 
@@ -609,11 +637,11 @@ Retorna os centros de custo cadastrados para o autorizador.
 {
   "data": [
     {
-      "costCenterID": 1,
+      "id": 1,
       "name": "Centro de custo 1"
     },
     {
-      "costCenterID": 2,
+      "id": 2,
       "name": "Centro de custo 2"
     }
   ]
