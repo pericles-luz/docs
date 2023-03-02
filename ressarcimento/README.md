@@ -505,6 +505,7 @@ Retorna o histórico de uma requisição.
     }
   ]
 }
+```
 
 ### GET /cities
 
