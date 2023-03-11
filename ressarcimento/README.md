@@ -3,7 +3,7 @@
 
 ## Rotas de autenticação
 
-### POST /autenticar/token
+### POST /auth/token
 
 Envia um token de acesso para o usuário. O token é enviado por SMS ou e-mail, dependendo do valor de `meioEnvio`.
 
@@ -28,7 +28,7 @@ Envia um token de acesso para o usuário. O token é enviado por SMS ou e-mail, 
 ```
 
 
-### POST /autenticar
+### POST /auth
 
 Autentica o usuário com o token de acesso.
 
@@ -49,12 +49,12 @@ Autentica o usuário com o token de acesso.
 ```json
 {
   "bearerToken": "JWT",
-  "mensagem": "texto a ser exibido ao usuário"
+  "mensage": "texto a ser exibido ao usuário"
 }
 ```
 
 - `bearerToken`: Token de acesso para as demais rotas
-- `mensagem`: Texto a ser exibido ao usuário
+- `mensage`: Texto a ser exibido ao usuário
 
 O token de acesso é válido por 24 horas e seu payload será:
 
@@ -68,19 +68,33 @@ O token de acesso é válido por 24 horas e seu payload será:
     "unidadeSindical": {
       "id": "65083027-c978-498d-974b-9ee04baf7b35",
       "nome": "Nome da unidade sindical"
-    }
+    },
+    "permissao": 1
   }
 }
 ```
 
 - `exp`: Data de expiração do token
 - `dados`: Dados do usuário
+- `permissao`: Permissão do usuário é um número `int64`. Cada bit do número representa uma permissão do sistema. As permissões são:
+  - 1: Usuário - podee acessar o sistema e fazer requisições
+  - 2: Aprovador - pode aprovar requisições
+  - 4: Pagador - pode informar que o pagamento foi realizado
 
-### GET /autenticar/certificado
+Para confirmar se um usuário tem uma permissão, basta fazer a operação `permissao & permissaoDesejada` e verificar se o resultado é diferente de zero. Por exemplo, para verificar se o usuário tem permissão de usuário, basta fazer `permissao & 1` e verificar se o resultado é diferente de zero. Em javascript, seria algo assim:
+
+```javascript
+const PERMISSAO_USUARIO = 1
+if (permissao & PERMISSAO_USUARIO) {
+  // usuário tem permissão de usuário
+}
+```
+
+### GET /auth/certificate
 
 Autentica o usuário com o certificado digital.
 
-#### O JSON de retorno é o mesmo do POST /autenticar
+#### O JSON de retorno é o mesmo do POST /auth
 
 ## Rotas autenticadas
 
