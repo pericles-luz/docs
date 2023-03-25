@@ -110,9 +110,12 @@ Retorna resumos das últimas requisições do usuário.
 {
   "data": [{
     "requestID": "65083027-c978-498d-974b-9ee04baf7b35",
+    "requesterID": "65083027-c978-498d-974b-9ee04baf7b35",
     "requesterName": "Nome do solicitante",
+    "unionUnitID": "65083027-c978-498d-974b-9ee04baf7b35",
     "unionUnitName": "Nome da unidade sindical",
-    "statusName": "Aguardando aprovação",
+    "status": 2,
+    "statusName": "Aguardando pagamento",
     "ammount": 100.00
   }]
 }
@@ -128,9 +131,12 @@ Retorna resumos das requisições que estão pendentes de aprovação do usuári
 {
   "data": [{
     "requestID": "65083027-c978-498d-974b-9ee04baf7b35",
+    "requesterID": "65083027-c978-498d-974b-9ee04baf7b35",
     "requesterName": "Nome do solicitante",
+    "unionUnitID": "65083027-c978-498d-974b-9ee04baf7b35",
     "unionUnitName": "Nome da unidade sindical",
-    "statusName": "Aguardando aprovação",
+    "status": 2,
+    "statusName": "Aguardando pagamento",
     "ammount": 100.00
   }]
 }
@@ -146,8 +152,11 @@ Retorna resumo das requisições que estão pendentes de pagamento pelo usuário
 {
   "data": [{
     "requestID": "65083027-c978-498d-974b-9ee04baf7b35",
+    "requesterID": "65083027-c978-498d-974b-9ee04baf7b35",
     "requesterName": "Nome do solicitante",
+    "unionUnitID": "65083027-c978-498d-974b-9ee04baf7b35",
     "unionUnitName": "Nome da unidade sindical",
+    "status": 2,
     "statusName": "Aguardando pagamento",
     "ammount": 100.00
   }]
@@ -172,6 +181,19 @@ Retorna os detalhes de uma requisição.
     "statusName": "Aguardando pagamento",
     "ammount": 100.00
   }
+}
+```
+
+### PUT /requests/submit
+
+Envia uma requisição para aprovação.
+
+#### JSON de entrada
+
+```json
+{
+  "requestID": "65083027-c978-498d-974b-9ee04baf7b35",
+  "note": "Os comprovantes estão anexados"
 }
 ```
 
