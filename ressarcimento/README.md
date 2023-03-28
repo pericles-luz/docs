@@ -12,12 +12,12 @@ Envia um token de acesso para o usuário. O token é enviado por SMS ou e-mail, 
 ```json
 {
   "cpf": "00000000191",
-  "meioEnvio": 1
+  "media": 1
 }
 ```
 
 - `cpf`: CPF do usuário
-- `meioEnvio`: Meio de envio do token de acesso. 1 para SMS, 2 para e-mail.
+- `media`: Meio de envio do token de acesso. 1 para SMS, 2 para e-mail.
 
 #### JSON de retorno
 
