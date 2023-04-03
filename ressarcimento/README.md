@@ -116,7 +116,7 @@ Retorna resumos das últimas requisições do usuário.
     "unionUnitName": "Nome da unidade sindical",
     "status": 2,
     "statusName": "Aguardando pagamento",
-    "ammount": 100.00
+    "amountt": 100.00
   }]
 }
 ```
@@ -137,7 +137,7 @@ Retorna resumos das requisições que estão pendentes de aprovação do usuári
     "unionUnitName": "Nome da unidade sindical",
     "status": 2,
     "statusName": "Aguardando pagamento",
-    "ammount": 100.00
+    "amountt": 100.00
   }]
 }
 ```
@@ -158,7 +158,7 @@ Retorna resumo das requisições que estão pendentes de pagamento pelo usuário
     "unionUnitName": "Nome da unidade sindical",
     "status": 2,
     "statusName": "Aguardando pagamento",
-    "ammount": 100.00
+    "amountt": 100.00
   }]
 }
 ```
@@ -179,7 +179,7 @@ Retorna os detalhes de uma requisição.
     "unionUnitName": "Nome da unidade sindical",
     "status": 2,
     "statusName": "Aguardando pagamento",
-    "ammount": 100.00
+    "amountt": 100.00
   }
 }
 ```
