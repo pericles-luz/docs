@@ -116,7 +116,7 @@ Retorna resumos das últimas requisições do usuário.
     "unionUnitName": "Nome da unidade sindical",
     "status": 2,
     "statusName": "Aguardando pagamento",
-    "amountt": 100.00
+    "amount": 100.00
   }]
 }
 ```
@@ -137,7 +137,7 @@ Retorna resumos das requisições que estão pendentes de aprovação do usuári
     "unionUnitName": "Nome da unidade sindical",
     "status": 2,
     "statusName": "Aguardando pagamento",
-    "amountt": 100.00
+    "amount": 10000
   }]
 }
 ```
@@ -158,7 +158,7 @@ Retorna resumo das requisições que estão pendentes de pagamento pelo usuário
     "unionUnitName": "Nome da unidade sindical",
     "status": 2,
     "statusName": "Aguardando pagamento",
-    "amountt": 100.00
+    "amount": 10000
   }]
 }
 ```
@@ -179,7 +179,7 @@ Retorna os detalhes de uma requisição.
     "unionUnitName": "Nome da unidade sindical",
     "status": 2,
     "statusName": "Aguardando pagamento",
-    "amountt": 100.00
+    "amount": 10000
   }
 }
 ```
@@ -261,7 +261,7 @@ Informa que o pagamento foi realizado.
 }
 ```
 
-### PUT /requests/{id}/payment/error
+### PUT /requests/payment/error
 
 Informa que houve um erro no pagamento.
 
@@ -282,7 +282,7 @@ Informa que houve um erro no pagamento.
 }
 ```
 
-### PUT /requests/{id}/cancel
+### PUT /requests/cancel
 
 Cancela uma requisição.
 
@@ -398,7 +398,7 @@ Adiciona um item a uma requisição.
 }
 ```
 
-### POST /requests/items/{id}/attachment
+### POST /requests/items/attachment
 
 Adiciona um anexo a um item de requisição.
 
@@ -591,30 +591,34 @@ Retorna as contas correntes cadastradas para o usuário.
 ```json
 {
   "data": [{
-    "id": "uuidv4",
-    "bankName": "Banco do Brasil",
-    "number": "000001",
-  }]
+			"account": "567876",
+			"accountDV": "9",
+			"accountID": "uuidv4",
+			"bank": "001",
+			"branch": "3456",
+			"branchDV": "3",
+			"type": 1
+		}]
 }
 ```
 
-### GET /accounts/{id}
+### POST /accounts
 
-Retorna os detalhes de uma conta corrente.
+Grava uma conta corrente.
 
 #### JSON de retorno
 
 ```json
 {
   "data": {
-    "id": "uuidv4",
-    "bankName": "Banco do Brasil",
-    "bank": "001",
-    "branch": "0001",
-    "branchDV": "0",
-    "number": "000001",
-    "digit": "0"
-  }
+			"account": "567876",
+			"accountDV": "9",
+			"accountID": "uuidv4",
+			"bank": "001",
+			"branch": "3456",
+			"branchDV": "3",
+			"type": 1
+		}
 }
 ```
 
@@ -628,16 +632,16 @@ Retorna os valores de diárias cadastradas para o usuário.
 {
   "data": [
     {
-      "id": 1,
+      "id": "uuidv4",
       "type": 1,
       "name": "Diária parcial",
-      "value": 100.00
+      "value": 10000
     },
     {
-      "id": 2,
+      "id": "uuidv4",
       "type": 2,
-      "name": "Diária integral",
-      "value": 200.00
+      "name": "Diária cheia",
+      "value": 20000
     }
   ]
 }
