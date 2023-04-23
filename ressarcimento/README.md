@@ -121,7 +121,7 @@ Retorna resumos das últimas requisições do usuário.
 }
 ```
 
-### GET /requests/waiting-approval
+### GET /requests/waitingApproval
 
 Retorna resumos das requisições que estão pendentes de aprovação do usuário.
 
@@ -142,7 +142,7 @@ Retorna resumos das requisições que estão pendentes de aprovação do usuári
 }
 ```
 
-### GET /requests/wating-payment
+### GET /requests/waitingPayment
 
 Retorna resumo das requisições que estão pendentes de pagamento pelo usuário.
 
@@ -156,7 +156,7 @@ Retorna resumo das requisições que estão pendentes de pagamento pelo usuário
     "requesterName": "Nome do solicitante",
     "unionUnitID": "65083027-c978-498d-974b-9ee04baf7b35",
     "unionUnitName": "Nome da unidade sindical",
-    "status": 2,
+    "status": 3,
     "statusName": "Aguardando pagamento",
     "amount": 10000
   }]
@@ -622,9 +622,11 @@ Grava uma conta corrente.
 }
 ```
 
-### GET /dailyTypes
+### GET /dailyTypes/{unionUnitID}
 
 Retorna os valores de diárias cadastradas para o usuário.
+
+- `unionUnitID` (obrigatório): ID da unidade pagadora (buscar unidades pagadoras em `/payerUnities`)
 
 #### JSON de retorno
 
@@ -634,20 +636,20 @@ Retorna os valores de diárias cadastradas para o usuário.
     {
       "id": "uuidv4",
       "type": 1,
-      "name": "Diária parcial",
+      "description": "Diária parcial",
       "value": 10000
     },
     {
       "id": "uuidv4",
       "type": 2,
-      "name": "Diária cheia",
+      "description": "Diária cheia",
       "value": 20000
     }
   ]
 }
 ```
 
-### GET /payer-unities
+### GET /payerUnities
 
 Retorna as unidades pagadoras cadastradas.
 
@@ -668,9 +670,29 @@ Retorna as unidades pagadoras cadastradas.
 }
 ```
 
-### GET /cost-centers
+### GET /costCenters/{id}
+
+Retorna o centro de custo desejado
+
+- `id` (obrigatório): ID do centro de custo
+
+#### JSON de retorno
+
+```json
+{
+  "data":
+    {
+      "id": 1,
+      "name": "Centro de custo 1"
+    }
+}
+```
+
+### GET /costCenters/{unionUnitID}
 
 Retorna os centros de custo cadastrados para o autorizador.
+
+- `unionUnitID` (obrigatório): ID da unidade pagadora (buscar unidades pagadoras em `/payerUnities`)
 
 #### JSON de retorno
 
