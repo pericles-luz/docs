@@ -416,7 +416,7 @@ Adiciona um anexo a um item de requisição.
 ```json
 {
   "data": {
-    "requestItemAttachmentID": "uuidv4"
+    "attachmentID": "uuidv4"
   },
   "mensage": "texto a ser exibido ao usuário"
 }
@@ -566,22 +566,6 @@ Retorna as cidades cadastradas.
 }
 ```
 
-### GET /cities/{id}
-
-Retorna os detalhes de uma cidade.
-
-#### JSON de retorno
-
-```json
-{
-  "data": {
-    "id": 1,
-    "name": "São Paulo",
-    "state": "SP"
-  }
-}
-```
-
 ### GET /accounts
 
 Retorna as contas correntes cadastradas para o usuário.
@@ -626,7 +610,7 @@ Grava uma conta corrente.
 
 Retorna os valores de diárias cadastradas para o usuário.
 
-- `unionUnitID` (obrigatório): ID da unidade pagadora (buscar unidades pagadoras em `/payerUnities`)
+- `unionUnitID` (obrigatório): ID da unidade pagadora (buscar unidades pagadoras em `/unionUnits`)
 
 #### JSON de retorno
 
@@ -649,7 +633,7 @@ Retorna os valores de diárias cadastradas para o usuário.
 }
 ```
 
-### GET /payerUnities
+### GET /unionUnits
 
 Retorna as unidades pagadoras cadastradas.
 
@@ -670,29 +654,11 @@ Retorna as unidades pagadoras cadastradas.
 }
 ```
 
-### GET /costCenters/{id}
-
-Retorna o centro de custo desejado
-
-- `id` (obrigatório): ID do centro de custo
-
-#### JSON de retorno
-
-```json
-{
-  "data":
-    {
-      "id": 1,
-      "name": "Centro de custo 1"
-    }
-}
-```
-
 ### GET /costCenters/{unionUnitID}
 
 Retorna os centros de custo cadastrados para o autorizador.
 
-- `unionUnitID` (obrigatório): ID da unidade pagadora (buscar unidades pagadoras em `/payerUnities`)
+- `unionUnitID` (obrigatório): ID da unidade pagadora (buscar unidades pagadoras em `/unionUnits`)
 
 #### JSON de retorno
 
