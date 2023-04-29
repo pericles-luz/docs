@@ -667,12 +667,52 @@ Retorna os centros de custo cadastrados para o autorizador.
   "data": [
     {
       "id": 1,
-      "name": "Centro de custo 1"
+      "description": "Centro de custo 1",
+      "type": 1
     },
     {
       "id": 2,
-      "name": "Centro de custo 2"
+      "description": "Centro de custo 2",
+      "type": 2
     }
   ]
 }
 ```
+
+### POST /costCenters
+
+Grava um centro de custo.
+
+#### JSON de entrada
+  
+  ```json
+  {
+    "id": 0,
+    "description": "Centro de custo 1",
+    "unionUnitID": "uuidv4",
+    "type": 1
+  }
+  ```
+
+- `description` (obrigatório): Descrição do centro de custo
+- `unionUnitID` (obrigatório, mas pode ser null): ID da unidade pagadora (buscar unidades pagadoras em `/unionUnits`)
+- `type` (obrigatório): Tipo do centro de custo. 1 para público, 2 para privado.
+
+### PUT /costCenters
+
+Grava um centro de custo.
+
+#### JSON de entrada
+  
+  ```json
+  {
+    "id": 1,
+    "description": "Centro de custo 1",
+    "unionUnitID": "uuidv4",
+    "type": 1
+  }
+  ```
+
+- `description` (obrigatório): Descrição do centro de custo
+- `unionUnitID` (obrigatório, mas pode ser null): ID da unidade pagadora (buscar unidades pagadoras em `/unionUnits`)
+- `type` (obrigatório): Tipo do centro de custo. 1 para público, 2 para privado.
