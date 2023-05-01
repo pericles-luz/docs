@@ -398,17 +398,15 @@ Adiciona um item a uma requisição.
 }
 ```
 
-### POST /requests/items/attachment
+### POST /requests/items/{id}/attachments
 
-Adiciona um anexo a um item de requisição.
+Adiciona um anexo a um item de requisição. Importante observar que o anexo deve ser enviado em base64.
+Também é importante destacar que o payload não é um JSON, mas apenas o arquivo em base64.
 
-#### JSON de entrada
+#### payload de entrada
 
-```json
-{
-  "requestItemID": "65083027-c978-498d-974b-9ee04baf7b35",
-  "file": "base64"
-}
+```
+data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAMSURBVBhXY3growIAAycBLhVrvukAAAAASUVORK5CYII=
 ```
 
 #### JSON de retorno
@@ -416,7 +414,8 @@ Adiciona um anexo a um item de requisição.
 ```json
 {
   "data": {
-    "attachmentID": "uuidv4"
+    "attachmentID": "uuidv4",
+    "hash": "hash em sha256 do arquivo"
   },
   "mensage": "texto a ser exibido ao usuário"
 }
@@ -434,7 +433,7 @@ Remove um item de requisição.
 }
 ```
 
-### DELETE /requests/items/attachment/{id}
+### DELETE /requests/items/attachments/{id}
 
 Remove um anexo de um item de requisição.
 
