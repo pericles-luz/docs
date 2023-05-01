@@ -415,8 +415,32 @@ data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs
 {
   "data": {
     "attachmentID": "uuidv4",
-    "hash": "hash em sha256 do arquivo"
+    "hash": "hash em sha256 do arquivo",
+    "description": "descrição do arquivo",
+    "createdAt": "2017-12-25 00:00:00",
+    "size": 123456
   },
+  "mensage": "texto a ser exibido ao usuário"
+}
+```
+
+### GET /requests/items/{id}/attachments
+
+Retorna os anexos de um item de requisição.
+
+#### JSON de retorno
+
+```json
+{
+  "data": [
+    {
+      "attachmentID": "uuidv4",
+      "hash": "hash em sha256 do arquivo",
+      "description": "descrição do arquivo",
+      "createdAt": "2017-12-25 00:00:00",
+      "size": 123456
+    }
+  ],
   "mensage": "texto a ser exibido ao usuário"
 }
 ```
