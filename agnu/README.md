@@ -12,7 +12,7 @@ Envia um token de acesso para o usuário. O token é enviado por SMS ou e-mail, 
 ```json
 {
   "cpf": "00000000191",
-  "meioEnvio": 1,
+  "sentMedia": 1,
 }
 ```
 
@@ -23,7 +23,7 @@ Envia um token de acesso para o usuário. O token é enviado por SMS ou e-mail, 
 
 ```json
 {
-  "mensagem": "texto a ser exibido ao usuário",
+  "message": "texto a ser exibido ao usuário",
 }
 ```
 
@@ -49,7 +49,7 @@ Autentica o usuário com o token de acesso.
 ```json
 {
   "bearerToken": "JWT",
-  "mensagem": "texto a ser exibido ao usuário"
+  "message": "texto a ser exibido ao usuário"
 }
 ```
 
@@ -62,7 +62,7 @@ O token de acesso é válido por 24 horas e seu payload será:
 {
   "exp": 1234567890,
   "iss": "sindireceita.org.br",
-  "dados": {
+  "data": {
     "cpf": "00000000191",
     "nome": "Nome do usuário",
     "unidadeSindical": {
@@ -86,7 +86,7 @@ Autentica o usuário com o certificado digital.
 
 As rotas autenticadas devem ser enviadas com o token de acesso no header `Authorization` com o prefixo `Bearer `.
 
-### GET /agnu/aberta
+### GET /agnu/opened
 
 Retorna a lista de AGNU abertas.
 
@@ -95,8 +95,8 @@ Retorna a lista de AGNU abertas.
 ```json
 
 {
-  "mensagem": "texto a ser exibido ao usuário",
-  "dados":   [{
+  "message": "texto a ser exibido ao usuário",
+  "data":   [{
     "id": "65083027-c974-498d-974b-9ee04baf7b58",
     "nome": "Nome da AGNU",
     "inicio": "2019-01-01 12:34:45",
@@ -113,7 +113,7 @@ Retorna a lista de AGNU abertas.
 - `mensagem`: Texto a ser exibido ao usuário
 - `dados`: Dados básicos da AGNU
 
-### GET /agnu/{id}/perguntas
+### GET /agnu/{id}/answers
 
 Retorna a lista de perguntas da AGNU.
 
@@ -121,12 +121,12 @@ Retorna a lista de perguntas da AGNU.
 
 ```json
 {
-  "mensagem": "texto a ser exibido ao usuário",
-  "dados": [{
+  "message": "texto a ser exibido ao usuário",
+  "data": [{
     "id": "65083027-c974-498d-974b-9ee04baf7b58",
-    "pergunta": "Texto da pergunta",
-    "tipo": 1,
-    "opcoes": [{
+    "question": "Texto da pergunta",
+    "type": 1,
+    "options": [{
       "id": "65083027-c974-498d-974b-9ee04baf7b58",
       "resposta": "Texto da resposta"
     }]
@@ -138,7 +138,7 @@ Retorna a lista de perguntas da AGNU.
 - `dados`: Dados da pergunta
 - `tipo`: Tipo da pergunta. 1 para escolha única, 2 para múltipla escolha
 
-### POST /resposta
+### POST /answer
 
 Responde uma pergunta da AGNU.
 
@@ -146,8 +146,8 @@ Responde uma pergunta da AGNU.
 
 ```json
 {
-  "pergunta": "65083027-c974-498d-974b-9ee04baf7b58",
-  "respostas": ["65083027-c974-498d-974b-9ee04baf7b58"]
+  "question": "65083027-c974-498d-974b-9ee04baf7b58",
+  "answers": ["65083027-c974-498d-974b-9ee04baf7b58"]
 }
 ```
 
@@ -158,13 +158,13 @@ Responde uma pergunta da AGNU.
 
 ```json
 {
-  "mensagem": "texto a ser exibido ao usuário"
+  "message": "texto a ser exibido ao usuário"
 }
 ```
 
 - `mensagem`: Texto a ser exibido ao usuário
 
-### GET /agnu/{id}/resposta
+### GET /agnu/{id}/answer
 
 Retorna a lista de respostas do usuário.
 
@@ -172,14 +172,14 @@ Retorna a lista de respostas do usuário.
 
 ```json
 {
-  "mensagem": "texto a ser exibido ao usuário",
-  "dados": [{
-    "pergunta": {
+  "message": "texto a ser exibido ao usuário",
+  "data": [{
+    "question": {
       "id": "65083027-c974-498d-974b-9ee04baf7b58",
-      "pergunta": "Texto da pergunta",
-      "tipo": 1
+      "question": "Texto da pergunta",
+      "type": 1
     },
-    "respostas": [{
+    "answers": [{
       "id": "65083027-c974-498d-974b-9ee04baf7b58",
       "resposta": "Texto da resposta"
     }]
@@ -190,7 +190,7 @@ Retorna a lista de respostas do usuário.
 - `mensagem`: Texto a ser exibido ao usuário
 - `dados`: Dados da resposta
 
-### PUT /agnu/{id}/confirmar
+### PUT /agnu/{id}/confirm
 
 Confirma a votação do usuário.
 
@@ -198,9 +198,9 @@ Confirma a votação do usuário.
 
 ```json
 {
-  "dados": {
+  "data": {
     "validacao": "código de validação"
   },
-  "mensagem": "texto a ser exibido ao usuário"
+  "message": "texto a ser exibido ao usuário"
 }
 ```

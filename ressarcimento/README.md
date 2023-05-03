@@ -23,7 +23,7 @@ Envia um token de acesso para o usuário. O token é enviado por SMS ou e-mail, 
 
 ```json
 {
-  "mensagem": "texto a ser exibido ao usuário",
+  "message": "texto a ser exibido ao usuário",
 }
 ```
 
@@ -62,7 +62,7 @@ O token de acesso é válido por 24 horas e seu payload será:
 {
   "exp": 1234567890,
   "iss": "sindireceita.org.br",
-  "dados": {
+  "data": {
     "cpf": "00000000191",
     "nome": "Nome do usuário",
     "unidadeSindical": {
@@ -239,7 +239,7 @@ Reprova uma requisição.
 }
 ```
 
-### PUT /requests/payment
+### PUT /requests/pay
 
 Informa que o pagamento foi realizado.
 
@@ -342,7 +342,7 @@ Adiciona um item a uma requisição.
 ```json
 {
   "type": 1,
-  "dailyType": 1,
+  "subType": 1,
   "originID": 1,
   "destinationID": 2,
   "start": "2017-01-01",
@@ -478,7 +478,7 @@ Atualiza um item de requisição.
 ```json
 {
   "requestItemID": "65083027-c978-498d-974b-9ee04baf7b35",
-  "dailyType": 1,
+  "subType": 1,
   "originID": 1,
   "destinationID": 2,
   "start": "2017-01-01",
