@@ -109,7 +109,7 @@ Retorna resumos das últimas requisições do usuário.
 ```json
 {
   "data": [{
-    "requestID": "65083027-c978-498d-974b-9ee04baf7b35",
+    "id": "65083027-c978-498d-974b-9ee04baf7b35",
     "requesterID": "65083027-c978-498d-974b-9ee04baf7b35",
     "requesterName": "Nome do solicitante",
     "unionUnitID": "65083027-c978-498d-974b-9ee04baf7b35",
@@ -130,7 +130,7 @@ Retorna resumos das requisições que estão pendentes de aprovação do usuári
 ```json
 {
   "data": [{
-    "requestID": "65083027-c978-498d-974b-9ee04baf7b35",
+    "id": "65083027-c978-498d-974b-9ee04baf7b35",
     "requesterID": "65083027-c978-498d-974b-9ee04baf7b35",
     "requesterName": "Nome do solicitante",
     "unionUnitID": "65083027-c978-498d-974b-9ee04baf7b35",
@@ -151,7 +151,7 @@ Retorna resumo das requisições que estão pendentes de pagamento pelo usuário
 ```json
 {
   "data": [{
-    "requestID": "65083027-c978-498d-974b-9ee04baf7b35",
+    "id": "65083027-c978-498d-974b-9ee04baf7b35",
     "requesterID": "65083027-c978-498d-974b-9ee04baf7b35",
     "requesterName": "Nome do solicitante",
     "unionUnitID": "65083027-c978-498d-974b-9ee04baf7b35",
@@ -172,7 +172,7 @@ Retorna os detalhes de uma requisição.
 ```json
 {
   "data": {
-    "requestID": "65083027-c978-498d-974b-9ee04baf7b35",
+    "id": "65083027-c978-498d-974b-9ee04baf7b35",
     "requesterID": "65083027-c978-498d-974b-9ee04baf7b35",
     "requesterName": "Nome do solicitante",
     "unionUnitID": "65083027-c978-498d-974b-9ee04baf7b35",
@@ -192,7 +192,7 @@ Envia uma requisição para aprovação.
 
 ```json
 {
-  "requestID": "65083027-c978-498d-974b-9ee04baf7b35",
+  "id": "65083027-c978-498d-974b-9ee04baf7b35",
   "note": "Os comprovantes estão anexados"
 }
 ```
@@ -205,7 +205,7 @@ Aprova uma requisição.
 
 ```json
 {
-  "requestID": "65083027-c978-498d-974b-9ee04baf7b35",
+  "id": "65083027-c978-498d-974b-9ee04baf7b35",
   "note": "Favor enviar o comprovante de pagamento por email"
 }
 ```
@@ -226,7 +226,7 @@ Reprova uma requisição.
 
 ```json
 {
-  "requestID": "65083027-c978-498d-974b-9ee04baf7b35",
+  "id": "65083027-c978-498d-974b-9ee04baf7b35",
   "note": "Não cabe ressarcimento de entrada em cinema"
 }
 ```
@@ -247,7 +247,7 @@ Informa que o pagamento foi realizado.
 
 ```json
 {
-  "requestID": "65083027-c978-498d-974b-9ee04baf7b35",
+  "id": "65083027-c978-498d-974b-9ee04baf7b35",
   "paymentDate": "2020-01-01",
   "note": "Pagamento feito por TED"
 }
@@ -269,7 +269,7 @@ Informa que houve um erro no pagamento.
 
 ```json
 {
-  "requestID": "65083027-c978-498d-974b-9ee04baf7b35",
+  "id": "65083027-c978-498d-974b-9ee04baf7b35",
   "note": "Conta inválida"
 }
 ```
@@ -290,7 +290,7 @@ Cancela uma requisição.
 
 ```json
 {
-  "requestID": "65083027-c978-498d-974b-9ee04baf7b35",
+  "id": "65083027-c978-498d-974b-9ee04baf7b35",
   "note": "Solicitação incorreta"
 }
 ```
@@ -385,7 +385,7 @@ Adiciona um item a uma requisição.
 - `finish` (obrigatório para tipo 1): Data de término do item
 - `description` (obrigatório para 1 e 2): Descrição do item
 - `amount` (obrigatório para tipo 2): Valor do ressarcimento
-- `costCenterID` (obrigatório): ID do centro de custo (buscar centros de custo em `/costCenters`)
+- `costCenterID` (obrigatório): ID do centro de custo (buscar centros de custo em `/costCenters/{unionUnitID}`)
 
 #### JSON de retorno
 
@@ -739,3 +739,7 @@ Grava um centro de custo.
 - `description` (obrigatório): Descrição do centro de custo
 - `unionUnitID` (obrigatório, mas pode ser null): ID da unidade pagadora (buscar unidades pagadoras em `/unionUnits`)
 - `type` (obrigatório): Tipo do centro de custo. 1 para público, 2 para privado.
+
+### GET /file/{id}
+
+Retorna um arquivo em seu formato original, mas deve ser enviado o header `Authorization` com o token de acesso.
