@@ -77,9 +77,9 @@ Retorna resumos das requisições que estão pendentes de aprovação do usuári
 }
 ```
 
-### GET /travel/requests/waitingPayment
+### GET /travel/requests/waitingBuying
 
-Retorna resumo das requisições que estão pendentes de pagamento pelo usuário.
+Retorna resumo das requisições que estão pendentes de compra pelo usuário.
 
 #### JSON de retorno
 
@@ -92,7 +92,7 @@ Retorna resumo das requisições que estão pendentes de pagamento pelo usuário
     "unionUnitID": "65083027-c978-498d-974b-9ee04baf7b35",
     "unionUnitName": "Nome da unidade sindical",
     "status": 3,
-    "statusName": "Aguardando pagamento",
+    "statusName": "Aguardando compra",
   }]
 }
 ```
@@ -181,7 +181,7 @@ Informa que a compra foi realizada.
 ```json
 {
   "id": "65083027-c978-498d-974b-9ee04baf7b35",
-  "paymentDate": "2020-01-01",
+  "BuyingDate": "2020-01-01",
   "note": "Compra conforme solicitado"
 }
 ```
@@ -194,7 +194,7 @@ Informa que a compra foi realizada.
 }
 ```
 
-### PUT /travel/requests/payment/error
+### PUT /travel/requests/Buying/error
 
 Informa que houve um erro no pagamento.
 
