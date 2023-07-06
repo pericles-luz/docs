@@ -4,7 +4,7 @@
 
 O objetivo desta API é permitir que o usuário solicite passagens e hospedagem para suas viagens.
 
-### POST /travel/requests
+### POST /travels/requests
 
 Cria uma requisição.
 
@@ -37,7 +37,7 @@ Cria uma requisição.
 }
 ```
 
-### GET /travel/requests
+### GET /travels/requests
 
 Retorna resumos das últimas requisições do usuário.
 
@@ -57,7 +57,7 @@ Retorna resumos das últimas requisições do usuário.
 }
 ```
 
-### GET /travel/requests/waitingApproval
+### GET /travels/requests/waitingApproval
 
 Retorna resumos das requisições que estão pendentes de aprovação do usuário.
 
@@ -77,7 +77,7 @@ Retorna resumos das requisições que estão pendentes de aprovação do usuári
 }
 ```
 
-### GET /travel/requests/waitingBuying
+### GET /travels/requests/waitingBuying
 
 Retorna resumo das requisições que estão pendentes de compra pelo usuário.
 
@@ -97,7 +97,7 @@ Retorna resumo das requisições que estão pendentes de compra pelo usuário.
 }
 ```
 
-### GET /travel/requests/{id}
+### GET /travels/requests/{id}
 
 Retorna os detalhes de uma requisição.
 
@@ -117,7 +117,7 @@ Retorna os detalhes de uma requisição.
 }
 ```
 
-### PUT /travel/requests/submit
+### PUT /travels/requests/submit
 
 Envia uma requisição para aprovação.
 
@@ -130,7 +130,7 @@ Envia uma requisição para aprovação.
 }
 ```
 
-### PUT /travel/requests/approve
+### PUT /travels/requests/approve
 
 Aprova uma requisição.
 
@@ -151,7 +151,7 @@ Aprova uma requisição.
 }
 ```
 
-### PUT /travel/requests/deny
+### PUT /travels/requests/deny
 
 Reprova uma requisição.
 
@@ -172,7 +172,7 @@ Reprova uma requisição.
 }
 ```
 
-### PUT /travel/requests/buy
+### PUT /travels/requests/buy
 
 Informa que a compra foi realizada.
 
@@ -194,7 +194,7 @@ Informa que a compra foi realizada.
 }
 ```
 
-### PUT /travel/requests/Buying/error
+### PUT /travels/requests/Buying/error
 
 Informa que houve um erro no pagamento.
 
@@ -215,7 +215,7 @@ Informa que houve um erro no pagamento.
 }
 ```
 
-### PUT /travel/requests/cancel
+### PUT /travels/requests/cancel
 
 Cancela uma requisição.
 
@@ -236,7 +236,7 @@ Cancela uma requisição.
 }
 ```
 
-### POST /travel/requests/{id}/items
+### POST /travels/requests/{id}/items
 
 Adiciona um item a uma requisição.
 
@@ -296,7 +296,7 @@ Adiciona um item a uma requisição.
 }
 ```
 
-### PUT /travel/requests/items/{id}
+### PUT /travels/requests/items/{id}
 
 Atualiza um item de uma requisição.
 
@@ -341,7 +341,7 @@ Atualiza um item de uma requisição.
 }
 ```
 
-### DELETE /travel/requests/items/{id}
+### DELETE /travels/requests/items/{id}
 
 Remove um item de requisição.
 
@@ -353,7 +353,7 @@ Remove um item de requisição.
 }
 ```
 
-### POST /travel/requests/items/{id}/attachments
+### POST /travels/requests/items/{id}/attachments
 
 Adiciona um anexo a um item de requisição. Importante observar que o anexo deve ser enviado em base64.
 Também é importante destacar que o payload não é um JSON, mas apenas o arquivo em base64.
@@ -379,7 +379,7 @@ data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs
 }
 ```
 
-### GET /travel/requests/items/{id}/attachments
+### GET /travels/requests/items/{id}/attachments
 
 Retorna os anexos de um item de requisição.
 
@@ -400,7 +400,7 @@ Retorna os anexos de um item de requisição.
 }
 ```
 
-### DELETE /travel/requests/items/attachments/{id}
+### DELETE /travels/requests/items/attachments/{id}
 
 Remove um anexo de um item de requisição.
 
