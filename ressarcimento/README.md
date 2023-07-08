@@ -118,7 +118,7 @@ Aprova uma requisição.
 
 ```json
 {
-  "mensage": "texto a ser exibido ao usuário"
+  "message": "texto a ser exibido ao usuário"
 }
 ```
 
@@ -139,7 +139,7 @@ Reprova uma requisição.
 
 ```json
 {
-  "mensage": "texto a ser exibido ao usuário"
+  "message": "texto a ser exibido ao usuário"
 }
 ```
 
@@ -161,7 +161,7 @@ Informa que o pagamento foi realizado.
 
 ```json
 {
-  "mensage": "texto a ser exibido ao usuário"
+  "message": "texto a ser exibido ao usuário"
 }
 ```
 
@@ -182,7 +182,7 @@ Informa que houve um erro no pagamento.
 
 ```json
 {
-  "mensage": "texto a ser exibido ao usuário"
+  "message": "texto a ser exibido ao usuário"
 }
 ```
 
@@ -203,7 +203,7 @@ Cancela uma requisição.
 
 ```json
 {
-  "mensage": "texto a ser exibido ao usuário"
+  "message": "texto a ser exibido ao usuário"
 }
 ```
 
@@ -232,7 +232,7 @@ Cria uma requisição.
   "data": {
     "requestID": "uuidv4"
   },
-  "mensage": "texto a ser exibido ao usuário"
+  "message": "texto a ser exibido ao usuário"
 }
 ```
 
@@ -298,7 +298,7 @@ Adiciona um item a uma requisição.
   "data": {
     "requestItemID": "uuidv4"
   },
-  "mensage": "texto a ser exibido ao usuário"
+  "message": "texto a ser exibido ao usuário"
 }
 ```
 
@@ -324,7 +324,7 @@ data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs
     "createdAt": "2017-12-25 00:00:00",
     "size": 123456
   },
-  "mensage": "texto a ser exibido ao usuário"
+  "message": "texto a ser exibido ao usuário"
 }
 ```
 
@@ -345,7 +345,7 @@ Retorna os anexos de um item de requisição.
       "size": 123456
     }
   ],
-  "mensage": "texto a ser exibido ao usuário"
+  "message": "texto a ser exibido ao usuário"
 }
 ```
 
@@ -357,7 +357,7 @@ Remove um item de requisição.
 
 ```json
 {
-  "mensage": "texto a ser exibido ao usuário"
+  "message": "texto a ser exibido ao usuário"
 }
 ```
 
@@ -369,7 +369,7 @@ Remove um anexo de um item de requisição.
 
 ```json
 {
-  "mensage": "texto a ser exibido ao usuário"
+  "message": "texto a ser exibido ao usuário"
 }
 ```
 
@@ -407,7 +407,7 @@ Atualiza um item de requisição.
 
 ```json
 {
-  "mensage": "texto a ser exibido ao usuário"
+  "message": "texto a ser exibido ao usuário"
 }
 ```
 
@@ -421,7 +421,7 @@ Solicita o código de assinatura de uma requisição. O código será enviado ao
 
 ```json
 {
-  "mensage": "texto a ser exibido ao usuário"
+  "message": "texto a ser exibido ao usuário"
 }
 ```
 
@@ -445,7 +445,7 @@ Assina uma requisição.
 
 ```json
 {
-  "mensage": "texto a ser exibido ao usuário"
+  "message": "texto a ser exibido ao usuário"
 }
 ```
 

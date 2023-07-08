@@ -7,9 +7,10 @@ Documentações
 - [AGNU](agnu/README.md)
 - [Ressarcimento](ressarcimento/README.md)
 - [Viagem](viagem/README.md)
+- [Rateio](rateio/README.md)
 
 
-## Rotas de autenticação
+## Rotas de autenticação a serem utilizadas para todas as APIs
 
 ### POST /auth/token
 
