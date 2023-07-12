@@ -302,10 +302,16 @@ Adiciona um item a uma requisição.
 }
 ```
 
-### POST /requests/items/{id}/attachments
+### POST /requests/items/{id}/attachments/{type}
 
 Adiciona um anexo a um item de requisição. Importante observar que o anexo deve ser enviado em base64.
 Também é importante destacar que o payload não é um JSON, mas apenas o arquivo em base64.
+
+- `type` (obrigatório): Tipo de anexo. Podem ser:
+  - `1`: Comprovante(nota fiscal ou recibo), usado em ressarcimentos
+  - `2`: Relatório(o de viagem é usado em diárias)
+  - `3`: Voucher, usado em viagens
+  - `4`: Sugestão de passagens, usado em viagens
 
 #### payload de entrada
 

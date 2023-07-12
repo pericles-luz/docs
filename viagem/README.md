@@ -246,7 +246,9 @@ Adiciona um item a uma requisição.
 {
     "type":           4,
     "originID":       1,
+    "originAirportID": 1,
     "destinationID":  2,
+    "destinationAirportID": 2,
     "departureDate":  "2023-05-13",
     "departureHours": "08-12",
     "returnDate":     "2023-05-14",
@@ -254,6 +256,7 @@ Adiciona um item a uma requisição.
     "note":           "Teste de diária",
     "needHosting":    true,
     "needTickets":    true,
+    "airModal":       true,
     "costCenterID":   1,
 }
 ```
@@ -269,6 +272,9 @@ Adiciona um item a uma requisição.
 - `needHosting` - Necessita de hospedagem
 - `needTickets` - Necessita de passagens
 - `costCenterID` - ID do centro de custo (buscar centros de custo em `/costCenters/{unionUnitID}`)
+- `airModal` (obrigatório para tipo 1): Indica se a viagem será de avião
+- `originAirportID` (obrigatório para tipo 1 se `airModal` for `true`): ID do aeroporto de origem (buscar aeroportos em `/airports/{state}`)
+- `destinationAirportID` (obrigatório para tipo 1 se `airModal` for `true`): ID do aeroporto de destino (buscar aeroportos em `/airports/{state}`)
 
 #### JSON de retorno
 
@@ -279,8 +285,12 @@ Adiciona um item a uma requisição.
     "type": 4,
     "originID": 1,
     "originName": "São Paulo",
+    "originAirportID": 1,
+    "originAirportName": "Aeroporto de Congonhas",
     "destinationID": 2,
     "destinationName": "Rio de Janeiro",
+    "destinationAirportID": 2,
+    "destinationAirportName": "Aeroporto Santos Dumont",
     "departureDate": "2023-05-13",
     "departureHours": "08-12",
     "returnDate": "2023-05-14",
@@ -288,6 +298,7 @@ Adiciona um item a uma requisição.
     "note": "Teste de diária",
     "needHosting": true,
     "needTickets": true,
+    "airModal": true,
     "costCenterID": 1,
     "costCenterName": "Centro de custo 1",
     "status": 1,
@@ -306,7 +317,9 @@ Atualiza um item de uma requisição.
 {
     "type":           4,
     "originID":       1,
+    "originAirportID": 1,
     "destinationID":  2,
+    "destinationAirportID": 2,
     "departureDate":  "2023-05-13",
     "departureHours": "08-12",
     "returnDate":     "2023-05-14",
@@ -314,6 +327,7 @@ Atualiza um item de uma requisição.
     "note":           "Teste de diária",
     "needHosting":    true,
     "needTickets":    true,
+    "airModal":       true
 }
 ```
 
@@ -326,8 +340,12 @@ Atualiza um item de uma requisição.
     "type": 4,
     "originID": 1,
     "originName": "São Paulo",
+    "originAirportID": 1,
+    "originAirportName": "Aeroporto de Congonhas",
     "destinationID": 2,
     "destinationName": "Rio de Janeiro",
+    "destinationAirportID": 2,
+    "destinationAirportName": "Aeroporto Santos Dumont",
     "departureDate": "2023-05-13",
     "departureHours": "08-12",
     "returnDate": "2023-05-14",
@@ -335,6 +353,7 @@ Atualiza um item de uma requisição.
     "note": "Teste de diária",
     "needHosting": true,
     "needTickets": true,
+    "airModal": true,
     "status": 1,
     "statusName": "Aguardando aprovação"
   }
@@ -353,10 +372,17 @@ Remove um item de requisição.
 }
 ```
 
-### POST /travels/requests/items/{id}/attachments
+### POST /travels/requests/items/{id}/attachments/{type}
 
 Adiciona um anexo a um item de requisição. Importante observar que o anexo deve ser enviado em base64.
 Também é importante destacar que o payload não é um JSON, mas apenas o arquivo em base64.
+
+- `type` (obrigatório): Tipo de anexo. Podem ser:
+  - `1`: Comprovante(nota fiscal ou recibo), usado em ressarcimentos
+  - `2`: Relatório(o de viagem é usado em diárias)
+  - `3`: Voucher, usado em viagens
+  - `4`: Sugestão de passagens, usado em viagens
+
 
 #### payload de entrada
 
