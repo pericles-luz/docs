@@ -470,29 +470,6 @@ Retorna o histórico de uma requisição.
 }
 ```
 
-### GET /cities
-
-Retorna as cidades cadastradas.
-
-#### JSON de retorno
-
-```json
-{
-  "data": [
-    {
-      "id": 1,
-      "name": "São Paulo",
-      "state": "SP"
-    },
-    {
-      "id": 2,
-      "name": "Rio de Janeiro",
-      "state": "RJ"
-    }
-  ]
-}
-```
-
 ### GET /accounts
 
 Retorna as contas correntes cadastradas para o usuário.
@@ -560,10 +537,6 @@ Retorna os valores de diárias cadastradas para o usuário.
 }
 ```
 
-### GET /unionUnits
-
-Retorna as unidades pagadoras cadastradas.
-
 #### JSON de retorno
 
 ```json
@@ -580,69 +553,6 @@ Retorna as unidades pagadoras cadastradas.
   ]
 }
 ```
-
-### GET /costCenters/{unionUnitID}
-
-Retorna os centros de custo cadastrados para o autorizador.
-
-- `unionUnitID` (obrigatório): ID da unidade pagadora (buscar unidades pagadoras em `/unionUnits`)
-
-#### JSON de retorno
-
-```json
-{
-  "data": [
-    {
-      "id": 1,
-      "description": "Centro de custo 1",
-      "type": 1
-    },
-    {
-      "id": 2,
-      "description": "Centro de custo 2",
-      "type": 2
-    }
-  ]
-}
-```
-
-### POST /costCenters
-
-Grava um centro de custo.
-
-#### JSON de entrada
-  
-  ```json
-  {
-    "id": 0,
-    "description": "Centro de custo 1",
-    "unionUnitID": "uuidv4",
-    "type": 1
-  }
-  ```
-
-- `description` (obrigatório): Descrição do centro de custo
-- `unionUnitID` (obrigatório, mas pode ser null): ID da unidade pagadora (buscar unidades pagadoras em `/unionUnits`)
-- `type` (obrigatório): Tipo do centro de custo. 1 para público, 2 para privado.
-
-### PUT /costCenters
-
-Grava um centro de custo.
-
-#### JSON de entrada
-  
-  ```json
-  {
-    "id": 1,
-    "description": "Centro de custo 1",
-    "unionUnitID": "uuidv4",
-    "type": 1
-  }
-  ```
-
-- `description` (obrigatório): Descrição do centro de custo
-- `unionUnitID` (obrigatório, mas pode ser null): ID da unidade pagadora (buscar unidades pagadoras em `/unionUnits`)
-- `type` (obrigatório): Tipo do centro de custo. 1 para público, 2 para privado.
 
 ### GET /file/{id}
 
