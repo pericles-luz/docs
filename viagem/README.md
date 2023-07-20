@@ -441,3 +441,25 @@ Remove um anexo de um item de requisição.
 ### GET /file/{id}
 
 Retorna um arquivo em seu formato original, mas deve ser enviado o header `Authorization` com o token de acesso.
+
+### POST /travels/requests/items/{id}/refund
+
+Gera a requisição de diárias e auxílio deslocamento automaticamente, a partir de um item de requisição de viagem.
+
+#### JSON de entrada
+
+```json
+{
+  "accountID": "65083027-c978-498d-974b-9ee04baf7b35",
+  "subType": 1
+}
+```
+
+- `accountID` (obrigatório): ID da conta bancária (buscar contas em `/accounts`)
+- `subType` (obrigatório para tipo 1): Tipo de diária a ser considerada (buscar tipos em `/dailyTypes`)
+
+```json
+{
+  "mensage": "texto a ser exibido ao usuário"
+}
+```
