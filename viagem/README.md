@@ -458,8 +458,4 @@ Gera a requisição de diárias e auxílio deslocamento automaticamente, a parti
 - `accountID` (obrigatório): ID da conta bancária (buscar contas em `/accounts`)
 - `subType` (obrigatório para tipo 1): Tipo de diária a ser considerada (buscar tipos em `/dailyTypes`)
 
-```json
-{
-  "mensage": "texto a ser exibido ao usuário"
-}
-```
+O retorno é 204
