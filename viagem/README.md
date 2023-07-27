@@ -272,9 +272,9 @@ Adiciona um item a uma requisição.
 - `needHosting` - Necessita de hospedagem
 - `needTickets` - Necessita de passagens
 - `costCenterID` - ID do centro de custo (buscar centros de custo em `/costCenters/{unionUnitID}`)
-- `airModal` (obrigatório para tipo 1): Indica se a viagem será de avião
-- `originAirportID` (obrigatório para tipo 1 se `airModal` for `true`): ID do aeroporto de origem (buscar aeroportos em `/airports/{state}`)
-- `destinationAirportID` (obrigatório para tipo 1 se `airModal` for `true`): ID do aeroporto de destino (buscar aeroportos em `/airports/{state}`)
+- `airModal` (obrigatório para tipo 4): Indica se a viagem será de avião
+- `originAirportID` (obrigatório para tipo 4 se `airModal` for `true`): ID do aeroporto de origem (buscar aeroportos em `/airports/{state}`)
+- `destinationAirportID` (obrigatório para tipo 4 se `airModal` for `true`): ID do aeroporto de destino (buscar aeroportos em `/airports/{state}`)
 
 #### JSON de retorno
 
