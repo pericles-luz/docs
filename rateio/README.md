@@ -322,6 +322,93 @@ Desautoriza um desconto específico.
 }
 ```
 
+## Saldos
+
+Gerencia os saldos de cada Unidade Sindical
+
+### POST /balances
+
+Cria um novo saldo para uma Unidade Sindical específica.
+
+#### JSON de entrada
+
+```json
+{
+  "unionUnitID": "uuidv4",
+  "apportionmentID": "uuidv4",
+  "value": 25000,
+  "accountType": 1
+}
+```
+
+- `apportionmentID` (obrigatório): Identificador único do rateio a que o saldo pertence.
+- `unionUnitID` (obrigatório): Identificador único da unidade sindical a que o saldo pertence. Pode ser buscado através do endpoint de Unidades Sindicais(`/unionUnits`).
+- `value` (obrigatório): Saldo total no tipo de conta.
+- `accountType` (obrigatório): Tipo de conta. 1 - Conta corrente, 2 - Investimento, 3 - Caixa.
+
+#### JSON de retorno
+
+```json
+{
+    "data": {
+        "id": "uuidv4",
+        "unionUnitID": "uuidv4",
+        "apportionmentID": "uuidv4",
+        "value": 25000,
+        "accountType": 1
+    }
+}
+```
+
+### GET /appotionments/:id/balances
+
+Retorna todos os saldos existentes para um determinado rateio
+
+#### JSON de retorno
+
+```json
+{
+    "data": [
+        {
+            "id": "uuidv4",
+            "unionUnitID": "uuidv4",
+            "apportionmentID": "uuidv4",
+            "value": 25000,
+            "accountType": 1
+        },
+        {
+            "id": "uuidv4",
+            "unionUnitID": "uuidv4",
+            "apportionmentID": "uuidv4",
+            "value": 25000,
+            "accountType": 1
+        }
+    ]
+}
+```
+
+### PUT /balances/:id
+
+Atualiza um saldo específico.
+
+#### JSON de entrada
+
+```json
+{
+  "unionUnitID": "uuidv4",
+  "value": 25000,
+  "accountType": 1
+}
+```
+
+- `unionUnitID`: Identificador único da unidade sindical a que o saldo pertence.
+- `value`: Saldo total no tipo de conta.
+- `accountType`: Tipo de conta. 1 - Conta corrente, 2 - Investimento, 3 - Caixa.
+
+### DELETE /balances/:id
+
+Deleta um saldo específico e retorna status 204, caso tudo ocorra bem.
+
 ## Mensalidades
 
 Gerencia as mensalidades pagas de forma avulsa pelos filiados
