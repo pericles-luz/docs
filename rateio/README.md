@@ -27,12 +27,7 @@ Só é possível criar um novo rateio se o último rateio existente estiver fina
 ```json
 {
     "data": {
-        "id": "uuidv4",
-        "name": "Rateio do mês 01-2020",
-        "note": "Início dos descontos da AGN",
-        "month": "01-2020",
-        "reference": "12-2019",
-        "status": 1
+        "note": "Início dos descontos da AGN"
     }
 }
 ```
@@ -43,6 +38,7 @@ Só é possível criar um novo rateio se o último rateio existente estiver fina
 - `month`: Mês do rateio
 - `reference`: Mês de referência do rateio
 - `status`: Status do rateio.
+- `income`: Arrecadação do rateio
 
 ### GET /apportionments
 
@@ -54,20 +50,22 @@ Retorna todos os rateios existentes.
 {
     "data": [
         {
-        "id": "uuidv4",
-        "name": "Rateio do mês 01-2020",
-        "note": "Início dos descontos da AGN",
-        "month": "01-2020",
-        "reference": "12-2019",
-        "status": 100,
+            "id": "uuidv4",
+            "name": "Rateio do mês 01-2020",
+            "note": "Início dos descontos da AGN",
+            "month": "01-2020",
+            "reference": "12-2019",
+            "status": 100,
+            "income": 100000
         },
         {
-        "id": "uuidv4",
-        "name": "Rateio do mês 02-2020",
-        "note": "Início dos descontos da AGN",
-        "month": "02-2020",
-        "reference": "01-2020",
-        "status": 100,
+            "id": "uuidv4",
+            "name": "Rateio do mês 02-2020",
+            "note": "Início dos descontos da AGN",
+            "month": "02-2020",
+            "reference": "01-2020",
+            "status": 100,
+            "income": 100000
         }
     ]
 }
@@ -88,6 +86,7 @@ Retorna um rateio específico.
         "month": "01-2020",
         "reference": "12-2019",
         "status": 100,
+        "income": 100000
     }
 }
 ```
@@ -100,11 +99,13 @@ Atualiza um rateio específico.
 
 ```json
 {
-  "note": "Início dos descontos da AGN"
+    "note": "Início dos descontos da AGN",
+    "income": 100000
 }
 ```
 
 - `note`: Observação sobre o rateio, não é obrigatório ter um texto, mas o campo deve existir.
+- `income`: Arrecadação do rateio
 
 #### JSON de retorno
 
@@ -117,6 +118,7 @@ Atualiza um rateio específico.
         "month": "01-2020",
         "reference": "12-2019",
         "status": 100,
+        "income": 100000
     }
 }
 ```
