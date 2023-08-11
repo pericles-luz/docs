@@ -516,50 +516,6 @@ Grava uma conta corrente.
 }
 ```
 
-### GET /dailyTypes/{unionUnitID}
-
-Retorna os valores de diárias cadastradas para o usuário.
-
-- `unionUnitID` (obrigatório): ID da unidade pagadora (buscar unidades pagadoras em `/unionUnits`)
-
-#### JSON de retorno
-
-```json
-{
-  "data": [
-    {
-      "id": "uuidv4",
-      "type": 1,
-      "description": "Diária parcial",
-      "value": 10000
-    },
-    {
-      "id": "uuidv4",
-      "type": 2,
-      "description": "Diária cheia",
-      "value": 20000
-    }
-  ]
-}
-```
-
-#### JSON de retorno
-
-```json
-{
-  "data": [
-    {
-      "id": "uuidv4",
-      "name": "Unidade pagadora 1"
-    },
-    {
-      "id": "uuidv4",
-      "name": "Unidade pagadora 2"
-    }
-  ]
-}
-```
-
 ### GET /file/{id}
 
 Retorna um arquivo em seu formato original, mas deve ser enviado o header `Authorization` com o token de acesso.

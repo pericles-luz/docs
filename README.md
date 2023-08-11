@@ -156,9 +156,7 @@ Retorna as cidades cadastradas.
 
 ### GET /costCenters/{unionUnitID}
 
-Retorna os centros de custo cadastrados para o autorizador.
-
-- `unionUnitID` (obrigatório): ID da unidade pagadora (buscar unidades pagadoras em `/unionUnits`)
+Retorna os centros de custo cadastrados para o unidade sindical.
 
 #### JSON de retorno
 
@@ -166,13 +164,17 @@ Retorna os centros de custo cadastrados para o autorizador.
 {
   "data": [
     {
-      "id": 1,
+      "id": "uuidv4",
       "description": "Centro de custo 1",
+      "classification": "Classificação do centro de custo",
+      "unionUnitID": "uuidv4",
       "type": 1
     },
     {
-      "id": 2,
-      "description": "Centro de custo 2",
+      "id": "uuidv4",
+      "description": "Centro de custo 1",
+      "classification": "Classificação do centro de custo",
+      "unionUnitID": "uuidv4",
       "type": 2
     }
   ]
@@ -187,17 +189,13 @@ Grava um centro de custo.
   
   ```json
   {
-    "id": 0,
     "description": "Centro de custo 1",
+    "classification": "Classificação do centro de custo",
     "unionUnitID": "uuidv4",
-    "type": 1
+    "type": 2
   }
   ```
-
-- `description` (obrigatório): Descrição do centro de custo
-- `unionUnitID` (obrigatório, mas pode ser null): ID da unidade pagadora (buscar unidades pagadoras em `/unionUnits`)
-- `type` (obrigatório): Tipo do centro de custo. 1 para público, 2 para privado.
-
+  
 ### PUT /costCenters
 
 Grava um centro de custo.
@@ -206,17 +204,166 @@ Grava um centro de custo.
   
   ```json
   {
-    "id": 1,
+    "id": "uuidv4",
     "description": "Centro de custo 1",
+    "classification": "Classificação do centro de custo",
     "unionUnitID": "uuidv4",
-    "type": 1
+    "type": 2
   }
   ```
 
+- `id` (opcional): ID do centro de custo
 - `description` (obrigatório): Descrição do centro de custo
-- `unionUnitID` (obrigatório, mas pode ser null): ID da unidade pagadora (buscar unidades pagadoras em `/unionUnits`)
-- `type` (obrigatório): Tipo do centro de custo. 1 para público, 2 para privado.
+- `classification` (opcional): Classificação do centro de custo no sistema contábil
+- `unionUnitID` (obrigatório): ID da unidade pagadora (buscar unidades pagadoras em `/unionUnits`)
+- `type` (obrigatório): Tipo do centro de custo. 1 normal, 2 artigo 132
 
 ### GET /unionUnits
 
 Retorna as unidades pagadoras cadastradas.
+
+
+### GET /dailyTypes/{unionUnitID}
+
+Retorna os valores de diárias cadastradas para o usuário.
+
+#### JSON de retorno
+
+```json
+{
+  "data": [
+    {
+      "id": "uuidv4",
+      "type": 1,
+      "description": "Diária parcial",
+      "legalBasis": "Artigo 32 do Estatuto",
+      "value": 10000
+    },
+    {
+      "id": "uuidv4",
+      "type": 2,
+      "description": "Diária cheia",
+      "legalBasis": "Ata da Assembleia de 23-08-220",
+      "value": 20000
+    }
+  ]
+}
+```
+
+### POST /dailyTypes
+
+Registra um valor de diária.
+
+#### JSON de entrada
+  
+  ```json
+  {
+    "unionUnitID": "uuidv4",
+    "type": 1,
+    "description": "Diária parcial",
+    "legalBasis": "Artigo 32 do Estatuto",
+    "value": 10000
+  }
+  ```
+
+- `unionUnitID` (obrigatório): ID da unidade pagadora (buscar unidades pagadoras em `/unionUnits`). Use `99999999-9999-4999-9999-999999999999` para registrar um valor de diária para todas as unidades sindicais
+- `type` (obrigatório): Tipo da diária. 1 cheia, 2 parcial, 3 urbana, 4 Ajuda de Custo para Reunião Virtual ou Remota
+- `description` (obrigatório): Descrição da diária
+- `value` (obrigatório): Valor da diária
+- `legalBasis` (opcional): Base legal da diária
+
+### PUT /dailyTypes
+
+Altera um valor de diária.
+
+#### JSON de entrada
+  
+  ```json
+  {
+    "id": "uuidv4",
+    "type": 1,
+    "description": "Diária parcial",
+    "legalBasis": "Artigo 32 do Estatuto",
+    "value": 10000
+  }
+  ```
+
+- `id` (obrigatório): ID do valor de diária
+- `type` (obrigatório): Tipo da diária. 1 cheia, 2 parcial, 3 urbana, 4 Ajuda de Custo para Reunião Virtual ou Remota
+- `description` (obrigatório): Descrição da diária
+- `value` (obrigatório): Valor da diária
+- `legalBasis` (opcional): Base legal da diária
+- `unionUnitID` (obrigatório): ID da unidade pagadora (buscar unidades pagadoras em `/unionUnits`). Use `99999999-9999-4999-9999-999999999999` para registrar um valor de diária para todas as unidades sindicais
+
+### DELETE /dailyTypes/{id}
+
+Exclui um valor de diária.
+
+### GET /movingBudgets/{unionUnitID}
+
+Retorna os valores de auxílio deslocamento cadastrados para a unidade sindical.
+
+#### JSON de retorno
+
+```json
+{
+  "data": [
+    {
+      "id": "uuidv4",
+      "description": "Auxílio deslocamento",
+      "legalBasis": "Artigo 32 do Estatuto",
+      "value": 10000
+    }
+  ]
+}
+```
+
+- `id` (obrigatório): ID do valor de auxílio deslocamento
+- `description` (obrigatório): Descrição do auxílio deslocamento
+- `value` (obrigatório): Valor do auxílio deslocamento
+- `legalBasis` (opcional): Base legal do auxílio deslocamento
+
+### POST /movingBudgets
+
+Registra um valor de auxílio deslocamento.
+
+#### JSON de entrada
+  
+  ```json
+  {
+    "unionUnitID": "uuidv4",
+    "description": "Auxílio deslocamento",
+    "legalBasis": "Artigo 32 do Estatuto",
+    "value": 10000
+  }
+  ```
+
+- `unionUnitID` (obrigatório): ID da unidade pagadora (buscar unidades pagadoras em `/unionUnits`). Use `99999999-9999-4999-9999-999999999999` para registrar um valor de auxílio deslocamento para todas as unidades sindicais
+- `description` (obrigatório): Descrição do auxílio deslocamento
+- `value` (obrigatório): Valor do auxílio deslocamento
+- `legalBasis` (opcional): Base legal do auxílio deslocamento
+
+### PUT /movingBudgets
+
+Altera um valor de auxílio deslocamento.
+
+#### JSON de entrada
+  
+  ```json
+  {
+    "id": "uuidv4",
+    "description": "Auxílio deslocamento",
+    "legalBasis": "Artigo 32 do Estatuto",
+    "value": 10000
+  }
+  ```
+
+- `id` (obrigatório): ID do valor de auxílio deslocamento
+- `description` (obrigatório): Descrição do auxílio deslocamento
+- `value` (obrigatório): Valor do auxílio deslocamento
+- `legalBasis` (opcional): Base legal do auxílio deslocamento
+- `unionUnitID` (obrigatório): ID da unidade pagadora (buscar unidades pagadoras em `/unionUnits`). Use `99999999-9999-4999-9999-999999999999` para registrar um valor de auxílio deslocamento para todas as unidades sindicais
+
+### DELETE /movingBudgets/{id}
+
+Exclui um valor de auxílio deslocamento.
