@@ -168,14 +168,16 @@ Retorna os centros de custo cadastrados para o unidade sindical.
       "description": "Centro de custo 1",
       "classification": "Classificação do centro de custo",
       "unionUnitID": "uuidv4",
-      "type": 1
+      "isPublic": true,
+      "isArticle132": false
     },
     {
       "id": "uuidv4",
       "description": "Centro de custo 1",
       "classification": "Classificação do centro de custo",
       "unionUnitID": "uuidv4",
-      "type": 2
+      "isPublic": true,
+      "isArticle132": false
     }
   ]
 }
@@ -192,7 +194,8 @@ Grava um centro de custo.
     "description": "Centro de custo 1",
     "classification": "Classificação do centro de custo",
     "unionUnitID": "uuidv4",
-    "type": 2
+    "isPublic": true,
+    "isArticle132": false
   }
   ```
   
@@ -208,15 +211,17 @@ Grava um centro de custo.
     "description": "Centro de custo 1",
     "classification": "Classificação do centro de custo",
     "unionUnitID": "uuidv4",
-    "type": 2
+    "isPublic": true,
+    "isArticle132": false
   }
   ```
 
 - `id` (opcional): ID do centro de custo
 - `description` (obrigatório): Descrição do centro de custo
 - `classification` (opcional): Classificação do centro de custo no sistema contábil
-- `unionUnitID` (obrigatório): ID da unidade pagadora (buscar unidades pagadoras em `/unionUnits`)
-- `type` (obrigatório): Tipo do centro de custo. 1 normal, 2 artigo 132
+- `unionUnitID` (opcional): ID da unidade pagadora (buscar unidades pagadoras em `/unionUnits`)
+- `isPublic` (obrigatório): Indica se o centro de custo é público
+- `isArticle132` (obrigatório): Indica se o centro de custo é do artigo 132
 
 ### GET /unionUnits
 
