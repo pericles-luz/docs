@@ -165,7 +165,7 @@ Retorna os centros de custo cadastrados para o unidade sindical.
   "data": [
     {
       "id": "uuidv4",
-      "description": "Centro de custo 1",
+      "name": "Centro de custo 1",
       "classification": "Classificação do centro de custo",
       "unionUnitID": "uuidv4",
       "isPublic": true,
@@ -173,7 +173,7 @@ Retorna os centros de custo cadastrados para o unidade sindical.
     },
     {
       "id": "uuidv4",
-      "description": "Centro de custo 1",
+      "name": "Centro de custo 1",
       "classification": "Classificação do centro de custo",
       "unionUnitID": "uuidv4",
       "isPublic": true,
@@ -191,7 +191,7 @@ Grava um centro de custo.
   
   ```json
   {
-    "description": "Centro de custo 1",
+    "name": "Centro de custo 1",
     "classification": "Classificação do centro de custo",
     "unionUnitID": "uuidv4",
     "isPublic": true,
@@ -208,7 +208,7 @@ Grava um centro de custo.
   ```json
   {
     "id": "uuidv4",
-    "description": "Centro de custo 1",
+    "name": "Centro de custo 1",
     "classification": "Classificação do centro de custo",
     "unionUnitID": "uuidv4",
     "isPublic": true,
@@ -216,8 +216,8 @@ Grava um centro de custo.
   }
   ```
 
-- `id` (opcional): ID do centro de custo
-- `description` (obrigatório): Descrição do centro de custo
+- `id` (obrigatório no PUT): ID do centro de custo
+- `name` (obrigatório): Nome do centro de custo
 - `classification` (opcional): Classificação do centro de custo no sistema contábil
 - `unionUnitID` (opcional): ID da unidade pagadora (buscar unidades pagadoras em `/unionUnits`)
 - `isPublic` (obrigatório): Indica se o centro de custo é público
