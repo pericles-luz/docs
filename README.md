@@ -113,6 +113,98 @@ Autentica o usuário com o certificado digital.
 
 ## Rotas de uso geral entre os módulos
 
+### GET /persons/{id}/authorizations
+
+Retorna as permissões que foram autorizadas para o usuário.
+
+#### JSON de retorno
+
+```json
+{
+  "data": [
+    {
+      "id": "uuidv4",
+      "authorizedID": "uuidv4",
+      "authorizedName": "Nome da permissão",
+      "authorizerID": "uuidv4",
+      "authorizerName": "Nome do autorizador",
+      "permission": 8,
+      "description": "Descrição da permissão"
+    },
+    {
+      "id": "uuidv4",
+      "authorizedID": "uuidv4",
+      "authorizedName": "Nome da permissão",
+      "authorizerID": "uuidv4",
+      "authorizerName": "Nome do autorizador",
+      "unionUnitID": "uuidv4",
+      "unionUnitName": "Nome da unidade sindical",
+      "permission": 8,
+      "description": "Descrição da permissão"
+    }
+  ]
+}
+```
+
+### POST /authorizations
+
+Registra uma permissão para o usuário.
+
+#### JSON de entrada
+  
+  ```json
+  {
+    "authorizedID": "uuidv4",
+    "unionUnitID": "uuidv4",
+    "permission": 8
+  }
+  ```
+
+### PUT /authorizations
+
+Altera uma permissão para o usuário.
+
+#### JSON de entrada
+  
+  ```json
+  {
+    "id": "uuidv4",
+    "authorizedID": "uuidv4",
+    "unionUnitID": "uuidv4",
+    "permission": 8
+  }
+  ```
+
+### DELETE /authorizations/{id}
+
+Exclui uma permissão para o usuário.
+
+- `id` (opcional para POST): ID da permissão
+- `authorizedID` (obrigatório): ID da pessoa a ser autorizada. (buscar pessoas em `/persons/{cpfOrName}`)
+- `unionUnitID` (obrigatório): ID da unidade sindical (buscar unidades sindicais em `/unionUnits`)
+- `permission` (obrigatório): Permissão a ser autorizada. (buscar permissões em `/permissions/delegables`)
+
+### GET /permissions/delegables
+
+Retorna as permissões que podem ser delegadas pelo usuário.
+
+#### JSON de retorno
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "description": "Descrição da permissão"
+    },
+    {
+      "id": 2,
+      "description": "Descrição da permissão"
+    }
+  ]
+}
+```
+
 ### GET /airports/{state}
 
 Retorna a lista de aeroportos do estado informado. Deve ser informada a sigla do estado.
@@ -222,6 +314,31 @@ Grava um centro de custo.
 - `unionUnitID` (opcional): ID da unidade pagadora (buscar unidades pagadoras em `/unionUnits`)
 - `isPublic` (obrigatório): Indica se o centro de custo é público
 - `isArticle132` (obrigatório): Indica se o centro de custo é do artigo 132
+
+### GET /persons/{cpfOrName}
+
+Retorna as pessoas que atendam ao filtro.
+
+#### JSON de retorno
+
+```json
+{
+  "data": [
+    {
+      "id": "uuidv4",
+      "name": "Nome da pessoa",
+      "cpf": "00000000191"
+    },
+    {
+      "id": "uuidv4",
+      "name": "Nome da pessoa",
+      "cpf": "00000000191"
+    }
+  ]
+}
+```
+
+- `cpfOrName` (obrigatório): parte do CPF ou nome da pessoa a ser buscada
 
 ### GET /unionUnits
 
