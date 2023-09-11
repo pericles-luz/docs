@@ -166,7 +166,7 @@ Retorna a lista de perguntas da AGNU.
 - `dados`: Dados da pergunta
 - `tipo`: Tipo da pergunta. 1 para escolha única, 2 para múltipla escolha
 
-### GET /agnu/{id}/questions/{id}
+### GET /agnu/questions/{id}
 
 Retorna os dados de uma pergunta da AGNU.
 
@@ -188,7 +188,7 @@ Retorna os dados de uma pergunta da AGNU.
 - `order`: Ordem da pergunta
 - `type`: Tipo da pergunta. 1 para escolha única, 2 para múltipla escolha
 
-### POST /agnu/{id}/questions
+### POST /agnu/questions
 
 Cria uma pergunta para a AGNU.
 
@@ -196,13 +196,14 @@ Cria uma pergunta para a AGNU.
 
 ```json
 {
+  "agnuID": "65083027-c974-498d-974b-9ee04baf7b58",
   "text": "Texto da pergunta",
   "order": 1,
   "type": 1,
 }
 ```
 
-### PUT /agnu/{id}/questions
+### PUT /agnu/questions
 
 Atualiza os dados de uma pergunta da AGNU.
 
@@ -227,7 +228,7 @@ Atualiza os dados de uma pergunta da AGNU.
 Remove uma pergunta da AGNU.
 
 
-### GET /agnu/{id}/questions/{id}/options
+### GET /agnu/questions/{id}/options
 
 Retorna a lista de opções de uma pergunta da AGNU.
 
@@ -256,7 +257,7 @@ Retorna a lista de opções de uma pergunta da AGNU.
 - `order`: Ordem da opção
 - `indicated`: Indica se a opção foi indicada como resposta
 
-### GET /agnu/{id}/questions/{id}/options/{id}
+### GET /agnu/questions/options/{id}
 
 Retorna os dados de uma opção de uma pergunta da AGNU.
 
@@ -273,7 +274,7 @@ Retorna os dados de uma opção de uma pergunta da AGNU.
 }
 ```
 
-### POST /agnu/{id}/questions/{id}/options
+### POST /agnu/questions/options
 
 Cria uma opção para uma pergunta da AGNU.
 
@@ -281,6 +282,7 @@ Cria uma opção para uma pergunta da AGNU.
 
 ```json
 {
+  "questionID": "65083027-c974-498d-974b-9ee04baf7b58",
   "option": "Texto da resposta 1",
   "order": 1,
   "indicated": true
@@ -290,7 +292,7 @@ Cria uma opção para uma pergunta da AGNU.
 - `option`: Texto da opção
 - `indicated`: Indica se a opção foi indicada como resposta
 
-### PUT /agnu/{id}/questions/{id}/options
+### PUT /agnu/questions/options
 
 Atualiza os dados de uma opção de uma pergunta da AGNU.
 
