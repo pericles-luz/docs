@@ -25,6 +25,7 @@ Registra uma solicitação de Carta-Fiança.
     "rentalValue": 200000,
     "startDate": "2020-01-01",
     "endDate": "2020-12-31",
+    "accountID": "uuidv4",
     "hasProperties": false
 }
 ```
@@ -38,6 +39,7 @@ Registra uma solicitação de Carta-Fiança.
         "rentalValue": 200000,
         "startDate": "2020-01-01",
         "endDate": "2020-12-31",
+        "accountID": "uuidv4",
         "hasProperties": false,
         "status": 2,
         "requester": {
@@ -59,6 +61,7 @@ Altera uma solicitação de Carta-Fiança.
     "rentalValue": 200000,
     "startDate": "2020-01-01",
     "endDate": "2020-12-31",
+    "accountID": "uuidv4",
     "hasProperties": false
 }
 ```
@@ -72,6 +75,7 @@ Altera uma solicitação de Carta-Fiança.
         "rentalValue": 200000,
         "startDate": "2020-01-01",
         "endDate": "2020-12-31",
+        "accountID": "uuidv4",
         "hasProperties": false,
         "status": 2,
         "requester": {
@@ -95,6 +99,7 @@ Retorna uma solicitação de Carta-Fiança.
         "rentalValue": 200000,
         "startDate": "2020-01-01",
         "endDate": "2020-12-31",
+        "accountID": "uuidv4",
         "hasProperties": false,
         "status": 2,
         "requester": {
@@ -119,6 +124,7 @@ Retorna uma lista de solicitações de Carta-Fiança.
             "rentalValue": 200000,
             "startDate": "2020-01-01",
             "endDate": "2020-12-31",
+            "accountID": "uuidv4",
             "hasProperties": false,
             "status": 2,
             "requester": {
@@ -131,6 +137,7 @@ Retorna uma lista de solicitações de Carta-Fiança.
             "rentalValue": 200000,
             "startDate": "2020-01-01",
             "endDate": "2020-12-31",
+            "accountID": "uuidv4",
             "hasProperties": false,
             "status": 2,
             "requester": {
@@ -212,7 +219,7 @@ Retorna status 204.
 ```json
 {
     "note": "Observação",
-    "legalOpinion": "Parecer jurídico"
+    "legalOpinion": true
 }
 ```
 
