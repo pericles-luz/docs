@@ -554,7 +554,6 @@ Cria uma nova despesa para uma unidade sindical específica.
 
 ```json
 {
-		"id":                   "uuidv4",
 		"apportionmentID":      "uuidv4",
 		"supplier":             "Fornecedor",
 		"history":              "Histórico",
@@ -608,7 +607,6 @@ Atualiza uma despesa específica.
 
 ```json
 {
-        "id":                   "uuidv4",
         "supplier":             "Fornecedor",
         "history":              "Histórico",
         "nature":               "Natureza",
