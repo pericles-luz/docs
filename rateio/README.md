@@ -545,3 +545,159 @@ Essse é o formato atual do CSV de Disponibilidades, mas será alterado assim qu
     "message": "Despesas importadas com sucesso"
 }
 ```
+
+### POST /expenses
+
+Cria uma nova despesa para uma unidade sindical específica.
+
+#### JSON de entrada
+
+```json
+{
+		"id":                   "uuidv4",
+		"apportionmentID":      "uuidv4",
+		"supplier":             "Fornecedor",
+		"history":              "Histórico",
+		"nature":               "Natureza",
+		"unionUnitID":          "uuidv4",
+		"costCenterID":         "uuidv4",
+		"value":                10000,
+		"stateID":              1,
+		"kind":                 1,
+	}
+```
+
+- `id`: Identificador único da despesa
+- `apportionmentID`: Identificador único do rateio a que a despesa pertence.
+- `supplier`: Nome do fornecedor
+- `history`: Texto a ficar como histórico da despesa
+- `nature`: Natureza da despesa
+- `unionUnitID`: Identificador único da unidade sindical a que a despesa pertence. Pode ser buscado através do endpoint de Unidades Sindicais(`/unionUnits`).
+- `costCenterID`: Identificador único do centro de custo a que a despesa pertence. Pode ser buscado através do endpoint de Centros de Custo(`/costCenters`).
+- `value`: Valor da despesa
+- `kind`: Tipo da despesa.
+	1) artigo 132
+	2) pré cadastrada em pós rateio a ser descontada da unidade sindical
+	3) despesa diversa efetuada pela DEN a ser ressarcida pela unidade sindical
+	4) pré cadastrada que deve ser descontada antes do rateio no estado
+
+#### JSON de retorno
+    
+```json
+{
+    "data": {
+        "id": "uuidv4",
+        "apportionmentID": "uuidv4",
+        "supplier": "Fornecedor",
+        "history": "Histórico",
+        "nature": "Natureza",
+        "unionUnitID": "uuidv4",
+        "costCenterID": "uuidv4",
+        "value": 10000,
+        "stateID": 1,
+        "kind": 1
+    }
+}
+```
+
+### PUT /expenses/:id
+
+Atualiza uma despesa específica.
+
+#### JSON de entrada
+
+```json
+{
+        "id":                   "uuidv4",
+        "supplier":             "Fornecedor",
+        "history":              "Histórico",
+        "nature":               "Natureza",
+        "unionUnitID":          "uuidv4",
+        "costCenterID":         "uuidv4",
+        "value":                10000,
+        "kind":                 1,
+    }
+```
+
+#### JSON de retorno
+
+```json
+{
+    "data": {
+        "id": "uuidv4",
+        "apportionmentID": "uuidv4",
+        "supplier": "Fornecedor",
+        "history": "Histórico",
+        "nature": "Natureza",
+        "unionUnitID": "uuidv4",
+        "costCenterID": "uuidv4",
+        "value": 10000,
+        "stateID": 1,
+        "kind": 1
+    }
+}
+```
+
+### DELETE /expenses/:id
+
+Deleta uma despesa específica e retorna status 204, caso tudo ocorra bem.
+
+### GET /apportionments/{id}/expenses
+
+Retorna todas as despesas de um rateio específico.
+
+#### JSON de retorno
+
+```json
+{
+    "data": [
+        {
+            "id": "uuidv4",
+            "apportionmentID": "uuidv4",
+            "supplier": "Fornecedor",
+            "history": "Histórico",
+            "nature": "Natureza",
+            "unionUnitID": "uuidv4",
+            "costCenterID": "uuidv4",
+            "value": 10000,
+            "stateID": 1,
+            "kind": 1
+        },
+        {
+            "id": "uuidv4",
+            "apportionmentID": "uuidv4",
+            "supplier": "Fornecedor",
+            "history": "Histórico",
+            "nature": "Natureza",
+            "unionUnitID": "uuidv4",
+            "costCenterID": "uuidv4",
+            "value": 10000,
+            "stateID": 1,
+            "kind": 1
+        }
+    ]
+}
+```
+
+### GET /expenses/:id
+
+Retorna uma despesa específica.
+
+#### JSON de retorno
+
+```json
+{
+    "data": {
+        "id": "uuidv4",
+        "apportionmentID": "uuidv4",
+        "supplier": "Fornecedor",
+        "history": "Histórico",
+        "nature": "Natureza",
+        "unionUnitID": "uuidv4",
+        "costCenterID": "uuidv4",
+        "value": 10000,
+        "stateID": 1,
+        "kind": 1
+    }
+}
+```
