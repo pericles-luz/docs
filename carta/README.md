@@ -244,7 +244,7 @@ Retorna status 204.
 ## Rotas para uploads de arquivos
 
 
-### POST /letterOfGuarantee/{id}/attachments/{type}
+### POST /letterOfGuarantee/requests/{id}/attachments/{type}
 
 Adiciona um anexo a uma solicitação de carta-fiança. Importante observar que o anexo deve ser enviado em base64.
 Também é importante destacar que o payload não é um JSON, mas apenas o arquivo em base64, podendo ser PDF, PNG ou JPG.
