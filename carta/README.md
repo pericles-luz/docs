@@ -14,7 +14,7 @@ Caso a solicitação seja aprovada, a carta é emitida, assinda digitalmente pel
 
 ### Solicitar Carta-Fiança
 
-### POST /letter-of-guarantee/requests
+### POST /letterOfGuarantee/requests
 
 Registra uma solicitação de Carta-Fiança.
 
@@ -42,6 +42,7 @@ Registra uma solicitação de Carta-Fiança.
         "accountID": "uuidv4",
         "hasProperties": false,
         "status": 2,
+        "number": "23",
         "requester": {
             "id": "uuidv4",
             "name": "João da Silva"
@@ -50,7 +51,7 @@ Registra uma solicitação de Carta-Fiança.
 }
 ```
 
-### PUT /letter-of-guarantee/requests/{id}
+### PUT /letterOfGuarantee/requests/{id}
 
 Altera uma solicitação de Carta-Fiança.
 
@@ -78,6 +79,7 @@ Altera uma solicitação de Carta-Fiança.
         "accountID": "uuidv4",
         "hasProperties": false,
         "status": 2,
+        "number": "23",
         "requester": {
             "id": "uuidv4",
             "name": "João da Silva"
@@ -86,7 +88,7 @@ Altera uma solicitação de Carta-Fiança.
 }
 ```
 
-### GET /letter-of-guarantee/requests/{id}
+### GET /letterOfGuarantee/requests/{id}
 
 Retorna uma solicitação de Carta-Fiança.
 
@@ -102,6 +104,7 @@ Retorna uma solicitação de Carta-Fiança.
         "accountID": "uuidv4",
         "hasProperties": false,
         "status": 2,
+        "number": "23",
         "requester": {
             "id": "uuidv4",
             "name": "João da Silva"
@@ -110,7 +113,7 @@ Retorna uma solicitação de Carta-Fiança.
 }
 ```
 
-### GET /letter-of-guarantee/requests
+### GET /letterOfGuarantee/requests
 
 Retorna uma lista de solicitações de Carta-Fiança.
 
@@ -149,9 +152,12 @@ Retorna uma lista de solicitações de Carta-Fiança.
 }
 ```
 
-### PUT /letter-of-guarantee/requests/{id}/cancel
+### PUT /letterOfGuarantee/requests/cancel
 
-Cancela uma solicitação de Carta-Fiança.
+Cancela uma solicitação de Carta-Fiança. O botão de cancelar só pode aparecer para o autor da solicitação e não deve aparecer se estiver nos status DENIED(5) ou CANCELED(6).
+
+No modal com o formulário para cancelamento, deve ser exibido um campo para o usuário informar o motivo do cancelamento.
+Também é importante destacar que o campo de motivo deve ser obrigatório e o seu label deve ser "Informe o motivo do cancelamento".
 
 Retorna status 204.
 
@@ -163,9 +169,12 @@ Retorna status 204.
 }
 ```
 
-### PUT /letter-of-guarantee/requests/{id}/approve
+### PUT /letterOfGuarantee/requests/approve
 
-Aprova uma solicitação de Carta-Fiança.
+Aprova uma solicitação de Carta-Fiança. O botão de aprovação só deve aparecer para a secretária(permissão 1024) e só pode aparecer se a solicitação estiver no status LEGALY_APPROVED(11).
+
+No modal com o formulário para aprovação, deve ser exibido um campo para o usuário fazer alguma observação.
+Também é importante destacar que o campo de observação deve ser opcional e o seu label deve ser "Observação".
 
 Retorna status 204.
 
@@ -180,9 +189,12 @@ Retorna status 204.
 }
 ```
 
-### PUT /letter-of-guarantee/requests/{id}/deny
+### PUT /letterOfGuarantee/requests/deny
 
-Reprova uma solicitação de Carta-Fiança.
+Reprova uma solicitação de Carta-Fiança. O botão de negar só deve aparecer para a secretária(permissão 1024) e só pode aparecer se a solicitação estiver no status LEGALY_APPROVED(11) ou SUBMITTED(2).
+
+No modal com o formulário para reprovação, deve ser exibido um campo para o usuário informar o motivo da reprovação.
+Também é importante destacar que o campo de motivo deve ser obrigatório e o seu label deve ser "Informe o motivo da negativa".
 
 Retorna status 204.
 
@@ -194,9 +206,12 @@ Retorna status 204.
 }
 ```
 
-### PUT /letter-of-guarantee/requests/{id}/send-to-legal
+### PUT /letterOfGuarantee/requests/sendToLegal
 
-Envia uma solicitação de Carta-Fiança para o parecer jurídico.
+Envia uma solicitação de Carta-Fiança para o parecer jurídico. O botão de enviar para o parecer jurídico só deve aparecer para a secretária(permissão 1024) e só pode aparecer se a solicitação estiver no status SUBMITTED(2).
+
+No modal com o formulário para envio para o parecer jurídico, deve ser exibido um campo para o usuário fazer alguma observação.
+Também é importante destacar que o campo de observação deve ser opcional e o seu label deve ser "Observação".
 
 Retorna status 204.
 
@@ -208,9 +223,12 @@ Retorna status 204.
 }
 ```
 
-### PUT /letter-of-guarantee/requests/{id}/legal-opinion
+### PUT /letterOfGuarantee/requests/legalOpinion
 
-Inclui o parecer jurídico a uma solicitação de Carta-Fiança.
+Inclui o parecer jurídico a uma solicitação de Carta-Fiança. O botão de incluir parecer jurídico só deve aparecer para o advogado(permissão 2048) e só pode aparecer se a solicitação estiver no status SENT_TO_LEGAL_OPINION(10).
+
+No modal com o formulário para incluir o parecer jurídico, deve ser exibido um campo para o usuário fazer alguma observação.
+Também é importante destacar que o campo de observação deve ser opcional, se aprovado e, caso não seja aprovado, o campo é obrigatório. O seu label deve ser "Observação".
 
 Retorna status 204.
 
@@ -219,20 +237,21 @@ Retorna status 204.
 ```json
 {
     "note": "Observação",
-    "legalOpinion": true
+    "legalyApproved": true
 }
 ```
 
 ## Rotas para uploads de arquivos
 
 
-### POST /letter-of-guarantee/{id}/attachments/{type}
+### POST /letterOfGuarantee/{id}/attachments/{type}
 
 Adiciona um anexo a uma solicitação de carta-fiança. Importante observar que o anexo deve ser enviado em base64.
 Também é importante destacar que o payload não é um JSON, mas apenas o arquivo em base64, podendo ser PDF, PNG ou JPG.
 
 - `type` (obrigatório): Tipo de anexo. Podem ser:
   - `5`: Contrato de locação
+  - `6`: Carta-fiança assinada
 
 #### payload de entrada
 
@@ -255,7 +274,7 @@ data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs
 }
 ```
 
-### GET /letter-of-guarantee/{id}/attachments
+### GET /letterOfGuarantee/{id}/attachments
 
 Retorna os anexos de um item de requisição.
 
