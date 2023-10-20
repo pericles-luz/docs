@@ -276,7 +276,7 @@ data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs
 
 ### GET /letterOfGuarantee/{id}/attachments
 
-Retorna os anexos de um item de requisição.
+Retorna os anexos de uma solicitação de carta-fiança. Os arquivos podem ser baixados através do link `/files/{attachmentID}`.
 
 #### JSON de retorno
 
@@ -291,6 +291,18 @@ Retorna os anexos de um item de requisição.
       "size": 123456
     }
   ],
+  "message": "texto a ser exibido ao usuário"
+}
+```
+
+### DELETE /attachments/{id}
+
+Remove um anexo de uma solicitação de carta-fiança. O botão de remoção só deve aparecer para o autor da solicitação e para a secretária(permissão 1024). O botão de remoção não pode aparecer se a solicitação estiver nos status DOWNLOADED(14).
+
+#### JSON de retorno
+
+```json
+{
   "message": "texto a ser exibido ao usuário"
 }
 ```
