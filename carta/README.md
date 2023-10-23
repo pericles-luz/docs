@@ -182,10 +182,7 @@ Retorna status 204.
     
 ```json
 {
-    "note": "Observação",
-    "value": 200000,
-    "start": "2020-01-01",
-    "finish": "2020-12-31",
+    "note": "Observação"
 }
 ```
 
