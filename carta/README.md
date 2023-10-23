@@ -271,7 +271,7 @@ data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs
 }
 ```
 
-### GET /letterOfGuarantee/{id}/attachments
+### GET /letterOfGuarantee/requests/{id}/attachments
 
 Retorna os anexos de uma solicitação de carta-fiança. Os arquivos podem ser baixados através do link `/files/{attachmentID}`.
 
