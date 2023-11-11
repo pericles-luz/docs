@@ -18,6 +18,7 @@ Retorna resumos das últimas requisições do usuário.
     "requesterName": "Nome do solicitante",
     "unionUnitID": "65083027-c978-498d-974b-9ee04baf7b35",
     "unionUnitName": "Nome da unidade sindical",
+    "paymentDate": "2020-01-01",
     "status": 2,
     "statusName": "Aguardando pagamento",
     "amount": 100.00
@@ -39,6 +40,7 @@ Retorna resumos das requisições que estão pendentes de aprovação do usuári
     "requesterName": "Nome do solicitante",
     "unionUnitID": "65083027-c978-498d-974b-9ee04baf7b35",
     "unionUnitName": "Nome da unidade sindical",
+    "paymentDate": "2020-01-01",
     "status": 2,
     "statusName": "Aguardando pagamento",
     "amount": 10000
@@ -60,6 +62,7 @@ Retorna resumo das requisições que estão pendentes de pagamento pelo usuário
     "requesterName": "Nome do solicitante",
     "unionUnitID": "65083027-c978-498d-974b-9ee04baf7b35",
     "unionUnitName": "Nome da unidade sindical",
+    "paymentDate": "2020-01-01",
     "status": 3,
     "statusName": "Aguardando pagamento",
     "amount": 10000
@@ -81,6 +84,7 @@ Retorna os detalhes de uma requisição.
     "requesterName": "Nome do solicitante",
     "unionUnitID": "65083027-c978-498d-974b-9ee04baf7b35",
     "unionUnitName": "Nome da unidade sindical",
+    "paymentDate": "2020-01-01",
     "status": 2,
     "statusName": "Aguardando pagamento",
     "amount": 10000
