@@ -53,6 +53,18 @@ O formulário de inclusão e edição de item deve ter:
 - O campo de data deve seguir o padrão do campo de data de AGNU;
 - O gerenciamento de upload deve seguir o padrão do gerenciamento de upload de item de requisição.
 
+## Formulário para análise da prestação contas
+
+O formulário para análise da prestação de contas deve ter:
+
+- Um toggle, onde o usuário poderá indicar se a prestação foi aceita ou não;
+- Um campo de texto, onde o usuário poderá digitar observações sobre a análise.
+
+## Observações
+
+- O botão para chamar esse formulário deve ter o label `Análise DFA...` e deve estar visível apenas se o status da prestação for `encaminhada para análise(2)`;
+- Apenas usuários com a rule `FINANCE(64)` podem ver o botão e acessar o formulário;
+
 ## Endpoints da API
 
 ### GET /accountabilities
@@ -148,10 +160,13 @@ Adiciona um novo item à classificação passada como parâmetro. Essa rota só 
 {
   "classificationID": "uuidv4",
   "originID": "uuidv4",
-  "dueDate": "2020-10-01",
-  "paymentDate": "2020-10-01",
+  "dueDate": "2020-10-05",
+  "paymentDate": "2020-10-05",
+  "competenceDate": "2020-10-01",
   "note": "Conta de telefone",
-  "amount": 100000
+  "amount": 100000,
+  "interestAmount": 1000,
+  "discountAmount": 500
 }
 ```
 
@@ -166,9 +181,12 @@ Adiciona um novo item à classificação passada como parâmetro. Essa rota só 
         "statusID": 1,
         "status": "não analisada",
         "dueDate": "2020-10-01",
+        "competenceDate": "2020-10-01",
         "paymentDate": "2020-10-01",
         "note": "Conta de telefone",
-        "amount": 100000
+        "amount": 100000,
+        "interestAmount": 1000,
+        "discountAmount": 500
     }
 }
 ```
@@ -190,8 +208,11 @@ Edita o item passado como parâmetro.
   "status": "não analisada",
   "dueDate": "2020-10-01",
   "paymentDate": "2020-10-01",
+  "competenceDate": "2020-10-01",
   "note": "Conta de telefone",
-  "amount": 100000
+  "amount": 100000,
+  "interestAmount": 1000,
+  "discountAmount": 500
 }
 ```
 
@@ -207,8 +228,11 @@ Edita o item passado como parâmetro.
         "status": "não analisada",
         "dueDate": "2020-10-01",
         "paymentDate": "2020-10-01",
+        "competenceDate": "2020-10-01",
         "note": "Conta de telefone",
-        "amunt": 100000
+        "amunt": 100000,
+        "interestAmount": 1000,
+        "discountAmount": 500
     }
 }
 ```
@@ -231,8 +255,11 @@ Retorna a lista de itens para a classificação passada como parâmetro. A lista
             "status": "não analisada",
             "dueDate": "2020-10-01",
             "paymentDate": "2020-10-01",
+            "competenceDate": "2020-10-01",
             "note": "Conta de telefone",
-            "amount": 100000
+            "amount": 100000,
+            "interestAmount": 1000,
+            "discountAmount": 500
         },
         {
             "id": "uuidv4",
@@ -243,13 +270,15 @@ Retorna a lista de itens para a classificação passada como parâmetro. A lista
             "status": "não analisada",
             "dueDate": "2020-10-01",
             "paymentDate": "2020-10-01",
+            "competenceDate": "2020-10-01",
             "note": "Conta de telefone",
-            "amount": 100000
+            "amount": 100000,
+            "interestAmount": 1000,
+            "discountAmount": 500
         }
     ]
 }
 ```
-
 
 ### POST /accountabilities/:id/classifications/:id/attachments/{type}
 
@@ -279,3 +308,19 @@ data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs
   "message": "texto a ser exibido ao usuário"
 }
 ```
+
+### POST /accountabilities/:id/analysis
+
+Adiciona uma análise à prestação de contas passada como parâmetro.
+
+#### Parâmetros
+
+```json
+{
+  "accepted": false,
+  "note": "Faltou comprovante de pagamento da conta de telefone"
+}
+```
+
+- `accepted` (obrigatório): Indica se a prestação foi aceita ou não;
+- `note` (opcional): Observações sobre a análise. Se accepted for false, esta observação é obrigatória.
