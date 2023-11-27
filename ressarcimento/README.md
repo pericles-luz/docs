@@ -500,6 +500,26 @@ Retorna as contas correntes cadastradas para o usuário.
 }
 ```
 
+### GET /accounts/{unionUnitID}
+
+Retorna as contas correntes cadastradas para a unidade sindical passada como parâmetro.
+
+#### JSON de retorno
+
+```json
+{
+  "data": [{
+			"account": "567876",
+			"accountDV": "9",
+			"accountID": "uuidv4",
+			"bank": "001",
+			"branch": "3456",
+			"branchDV": "3",
+			"type": 1
+		}]
+}
+```
+
 ### POST /accounts
 
 Grava uma conta corrente.

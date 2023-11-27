@@ -35,10 +35,14 @@ Na tabela, deve haver três colunas:
 O formulário de inclusão e edição de item deve ter:
 
 - Um campo de seleção, onde o usuário poderá selecionar a classificação do item;
+- Um campo de seleção, onde o usuário poderá selecionar a origem do item. A origem pode ser uma conta corrente da unidade sindical e deve ser buscada em `/accounts/{unionUnitID}`;
 - Um campo de data, onde o usuário poderá selecionar a data de vencimento do item;
 - Um campo de data, onde o usuário poderá selecionar a data de pagamento do item;
+= Um campo de data, onde o usuário poderá selecionar a data de competência do item. Este campo deve ser do tipo mês/ano;
 - Um campo de texto, onde o usuário poderá digitar a descrição do item;
 - Um campo de valor, onde o usuário poderá digitar o valor do item;
+- Um campo de valor, onde o usuário poderá digitar o valor dos juros e multa do item;
+- Um campo de valor, onde o usuário poderá digitar o valor do desconto do item;
 - Uma área para gerenciar os anexos do item, onde o usuário poderá adicionar, visualizar e excluir anexos.
 
 ## Observações
@@ -169,7 +173,7 @@ Adiciona um novo item à classificação passada como parâmetro. Essa rota só 
 }
 ```
 
-- `originID` deve ser a conta corrente de onde sairá ou para onde irá o valor do item. Deve ser uma conta corrente da unidade sindical e pode ser buscada em `/accounts`.
+- `originID` deve ser a conta corrente de onde sairá ou para onde irá o valor do item. Deve ser uma conta corrente da unidade sindical e pode ser buscada em `/accounts/{unionUnitID}`.
 - `classificationID` deve ser a classificação do item. Deve ser uma classificação da prestação e pode ser buscada em `/accountabilities/:id/classifications`.
 
 ### PUT /accountabilities/items/:id
