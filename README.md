@@ -391,7 +391,12 @@ Registra um valor de diária.
   ```
 
 - `unionUnitID` (obrigatório): ID da unidade pagadora (buscar unidades pagadoras em `/unionUnits`). Use `99999999-9999-4999-9999-999999999999` para registrar um valor de diária para todas as unidades sindicais
-- `type` (obrigatório): Tipo da diária. 1 cheia, 2 parcial, 3 urbana, 4 Ajuda de Custo para Reunião Virtual ou Remota
+- `type` (obrigatório): Tipo da diária. 
+  - 1 cheia
+  - 2 parcial
+  - 3 urbana
+  - 4 Ajuda de Custo para Reunião Virtual ou Remota
+  - 5 Diárias de eventos
 - `description` (obrigatório): Descrição da diária
 - `value` (obrigatório): Valor da diária
 - `legalBasis` (opcional): Base legal da diária
@@ -413,7 +418,12 @@ Altera um valor de diária.
   ```
 
 - `id` (obrigatório): ID do valor de diária
-- `type` (obrigatório): Tipo da diária. 1 cheia, 2 parcial, 3 urbana, 4 Ajuda de Custo para Reunião Virtual ou Remota
+- `type` (obrigatório): Tipo da diária. 
+  - 1 cheia
+  - 2 parcial
+  - 3 urbana
+  - 4 Ajuda de Custo para Reunião Virtual ou Remota
+  - 5 Diárias de eventos
 - `description` (obrigatório): Descrição da diária
 - `value` (obrigatório): Valor da diária
 - `legalBasis` (opcional): Base legal da diária
