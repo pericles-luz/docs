@@ -19,7 +19,7 @@ Também haverá um combobox onde será possível selecionar a prestação que se
 O wizard é a forma de preenchimento da prestação. Ele é composto por uma série de páginas, onde cada página representa uma classificação. Cada página do wizard deve ter:
 
 - Um título, que é o nome da classificação;
-- Um botão Adicionar, que abrirá um modal com o formulário para adicionar um novo item;
+- Um botão Adicionar, que abrirá um modal com o formulário para adicionar um novo item. Este botão só deve aparecer se a classificação for editável e se a prestação não estiver fechada;
 - Uma tabela, onde serão apresentados os itens da classificação(despesas e receitas);
 - Um texto com explicações detalhadas sobre a classificação;
 - Botões Anterior, Próximo e Fechar.
@@ -62,14 +62,16 @@ Retorna uma lista de prestação de contas disponíveis para o usuário.
     "data": [
         {
             "id": 1,
-            "name": "Prestação de contas 2",
+            "description": "Prestação de contas 2",
             "date": 2020-10-01,
+            "statusID": 1,
             "status": "open"
         },
         {
             "id": 2,
-            "name": "Prestação de contas 1",
+            "description": "Prestação de contas 1",
             "year": 2020-09-01,
+            "statusID": 100,
             "status": "closed"
         }
     ]
@@ -88,12 +90,14 @@ Retorna uma lista de classificações disponíveis para o usuário.
         {
             "id": "uuidv4",
             "order": 1,
+            "editable": true,
             "name": "Telefonia e fax",
             "description": "Todas as contas de telefonia e fax pagas pela unidade sindical devem ser informadas nesta classificação."
         },
         {
             "id": "uuidv4",
             "order": 2,
+            "editable": true,
             "name": "Deslocamento",
             "description": "Todas as despesas com deslocamento pagas pela unidade sindical devem ser informadas nesta classificação. Táxi, Uber etc."
         }
@@ -114,31 +118,36 @@ Retorna a lista de classificações para a prestação passada como parâmetro. 
             "id": "uuidv4",
             "order": 1,
             "name": "Telefonia e fax",
+            "description": "Todas as contas de telefonia e fax pagas pela unidade sindical devem ser informadas nesta classificação.",
+            "editable": true,
             "total": 100000
         },
         {
             "id": "uuidv4",
             "order": 2,
             "name": "Deslocamento",
+            "description": "Todas as despesas com deslocamento pagas pela unidade sindical devem ser informadas nesta classificação. Táxi, Uber etc.",
+            "editable": true,
             "total": 200000
         }
     ]
 }
 ```
 
-### POST /accountabilities/:id/classifications/:id/items
+### POST /accountabilities/:id/items
 
-Adiciona um novo item à classificação passada como parâmetro.
+Adiciona um novo item à classificação passada como parâmetro. Essa rota só pode ser usada se a classificação for editável.
 
 #### Parâmetros
 
 ```json
 {
   "classificationID": "uuidv4",
+  "originID": "uuidv4",
   "dueDate": "2020-10-01",
   "paymentDate": "2020-10-01",
-  "description": "Conta de telefone",
-  "value": 100000
+  "note": "Conta de telefone",
+  "amount": 100000
 }
 ```
 
@@ -149,15 +158,21 @@ Adiciona um novo item à classificação passada como parâmetro.
     "data": {
         "id": "uuidv4",
         "classificationID": "uuidv4",
+        "originID": "uuidv4",
+        "statusID": 1,
+        "status": "não analisada",
         "dueDate": "2020-10-01",
         "paymentDate": "2020-10-01",
-        "description": "Conta de telefone",
-        "value": 100000
+        "note": "Conta de telefone",
+        "amount": 100000
     }
 }
 ```
 
-### PUT /accountabilities/:id/classifications/:id/items/:id
+- `originID` deve ser a conta corrente de onde sairá ou para onde irá o valor do item. Deve ser uma conta corrente da unidade sindical e pode ser buscada em `/accounts`.
+- `classificationID` deve ser a classificação do item. Deve ser uma classificação da prestação e pode ser buscada em `/accountabilities/:id/classifications`.
+
+### PUT /accountabilities/items/:id
 
 Edita o item passado como parâmetro.
 
@@ -166,10 +181,13 @@ Edita o item passado como parâmetro.
 ```json
 {
   "classificationID": "uuidv4",
+  "originID": "uuidv4",
+  "statusID": 1,
+  "status": "não analisada",
   "dueDate": "2020-10-01",
   "paymentDate": "2020-10-01",
-  "description": "Conta de telefone",
-  "value": 100000
+  "note": "Conta de telefone",
+  "amount": 100000
 }
 ```
 
@@ -180,10 +198,13 @@ Edita o item passado como parâmetro.
     "data": {
         "id": "uuidv4",
         "classificationID": "uuidv4",
+        "originID": "uuidv4",
+        "statusID": 1,
+        "status": "não analisada",
         "dueDate": "2020-10-01",
         "paymentDate": "2020-10-01",
-        "description": "Conta de telefone",
-        "value": 100000
+        "note": "Conta de telefone",
+        "amunt": 100000
     }
 }
 ```
@@ -199,19 +220,27 @@ Retorna a lista de itens para a classificação passada como parâmetro. A lista
     "data": [
         {
             "id": "uuidv4",
+            "accaountabilityID": "uuidv4",
             "classificationID": "uuidv4",
+            "originID": "uuidv4",
+            "statusID": 1,
+            "status": "não analisada",
             "dueDate": "2020-10-01",
             "paymentDate": "2020-10-01",
-            "description": "Conta de telefone",
-            "value": 100000
+            "note": "Conta de telefone",
+            "amount": 100000
         },
         {
             "id": "uuidv4",
+            "accaountabilityID": "uuidv4",
             "classificationID": "uuidv4",
+            "originID": "uuidv4",
+            "statusID": 1,
+            "status": "não analisada",
             "dueDate": "2020-10-01",
             "paymentDate": "2020-10-01",
-            "description": "Conta de telefone",
-            "value": 100000
+            "note": "Conta de telefone",
+            "amount": 100000
         }
     ]
 }
