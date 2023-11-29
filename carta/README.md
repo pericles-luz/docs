@@ -130,6 +130,7 @@ Retorna uma lista de solicitações de Carta-Fiança.
             "accountID": "uuidv4",
             "hasProperties": false,
             "status": 2,
+            "number": 23,
             "requester": {
                 "id": "uuidv4",
                 "name": "João da Silva"
@@ -143,6 +144,7 @@ Retorna uma lista de solicitações de Carta-Fiança.
             "accountID": "uuidv4",
             "hasProperties": false,
             "status": 2,
+            "number": 23,
             "requester": {
                 "id": "uuidv4",
                 "name": "João da Silva"
