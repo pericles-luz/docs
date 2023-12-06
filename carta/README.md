@@ -26,9 +26,15 @@ Registra uma solicitação de Carta-Fiança.
     "start": "2020-01-01",
     "finish": "2020-12-31",
     "accountID": "uuidv4",
+    "lessor": "João da Silva",
+    "administrator": "Joaquim da Silva",
+    "address": "Rua da Consolação, 123, Bairro da Consolação, São Paulo, SP",
+    "letterValue": 200000,
     "hasProperties": false
 }
 ```
+
+Os campos `lessor`, `administrator`, `letterValue` e `address` só devem ser editados pela secretária(permissão 1024).
 
 #### JSON de retorno
 
@@ -41,6 +47,10 @@ Registra uma solicitação de Carta-Fiança.
         "finish": "2020-12-31",
         "accountID": "uuidv4",
         "hasProperties": false,
+        "lessor": "João da Silva",
+        "administrator": "Joaquim da Silva",
+        "address": "Rua da Consolação, 123, Bairro da Consolação, São Paulo, SP",
+        "letterValue": 200000,
         "status": 2,
         "number": "23",
         "requester": {
@@ -63,9 +73,15 @@ Altera uma solicitação de Carta-Fiança.
     "start": "2020-01-01",
     "finish": "2020-12-31",
     "accountID": "uuidv4",
+    "lessor": "João da Silva",
+    "administrator": "Joaquim da Silva",
+    "address": "Rua da Consolação, 123, Bairro da Consolação, São Paulo, SP",
+    "letterValue": 200000,
     "hasProperties": false
 }
 ```
+
+Os campos `lessor`, `administrator`, `letterValue` e `address` só devem ser editados pela secretária(permissão 1024).
 
 #### JSON de retorno
 
@@ -78,6 +94,10 @@ Altera uma solicitação de Carta-Fiança.
         "finish": "2020-12-31",
         "accountID": "uuidv4",
         "hasProperties": false,
+        "lessor": "João da Silva",
+        "administrator": "Joaquim da Silva",
+        "address": "Rua da Consolação, 123, Bairro da Consolação, São Paulo, SP",
+        "letterValue": 200000,
         "status": 2,
         "number": "23",
         "requester": {
@@ -103,6 +123,10 @@ Retorna uma solicitação de Carta-Fiança.
         "finish": "2020-12-31",
         "accountID": "uuidv4",
         "hasProperties": false,
+        "lessor": "João da Silva",
+        "administrator": "Joaquim da Silva",
+        "address": "Rua da Consolação, 123, Bairro da Consolação, São Paulo, SP",
+        "letterValue": 200000,
         "status": 2,
         "number": "23",
         "requester": {
@@ -130,6 +154,10 @@ Retorna uma lista de solicitações de Carta-Fiança.
             "accountID": "uuidv4",
             "hasProperties": false,
             "status": 2,
+            "lessor": "João da Silva",
+            "administrator": "Joaquim da Silva",
+            "address": "Rua da Consolação, 123, Bairro da Consolação, São Paulo, SP",
+            "letterValue": 200000,
             "number": 23,
             "requester": {
                 "id": "uuidv4",
@@ -143,6 +171,10 @@ Retorna uma lista de solicitações de Carta-Fiança.
             "finish": "2020-12-31",
             "accountID": "uuidv4",
             "hasProperties": false,
+            "lessor": "João da Silva",
+            "administrator": "Joaquim da Silva",
+            "address": "Rua da Consolação, 123, Bairro da Consolação, São Paulo, SP",
+            "letterValue": 200000,
             "status": 2,
             "number": 23,
             "requester": {
