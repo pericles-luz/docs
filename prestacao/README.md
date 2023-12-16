@@ -280,13 +280,13 @@ Retorna a lista de itens para a classificação passada como parâmetro. A lista
 }
 ```
 
-### POST /accountabilities/:id/classifications/:id/attachments/{type}
+### POST /accountabilities/classifications/items/:id/attachments/{type}
 
 Adiciona um anexo a um item de prestação de contas. Importante observar que o anexo deve ser enviado em base64.
 Também é importante destacar que o payload não é um JSON, mas apenas o arquivo em base64, podendo ser PDF, PNG ou JPG.
 
 - `type` (obrigatório): Tipo de anexo. Podem ser:
-  - `7`: Comprovante de pagamento ou recebimento
+  - `1`: Comprovante de pagamento ou recebimento
 
 #### payload de entrada
 
