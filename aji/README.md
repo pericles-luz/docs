@@ -78,7 +78,10 @@ Cria um novo pedido de AJI.
         "id": "uuidv4",
         "brief": "string",
         "specialNeeds": "string",
-        "lawyerID": "uuidv4",
+        "requester": {
+            "id": "uuidv4",
+            "name": "string",
+        },
         "ruleRelated": true,
         "note": "string",
         "statusID": 1
@@ -99,7 +102,18 @@ Retorna uma lista de pedidos de AJI.
             "id": "uuidv4",
             "brief": "string",
             "specialNeeds": "string",
-            "lawyerID": "uuidv4",
+            "requester": {
+                "id": "uuidv4",
+                "name": "string",
+            },
+            "lawyer": {
+                "id": "uuidv4",
+                "name": "string",
+            },
+            "approver": {
+                "id": "uuidv4",
+                "name": "string",
+            },
             "ruleRelated": true,
             "note": "string",
             "statusID": 1
@@ -108,7 +122,18 @@ Retorna uma lista de pedidos de AJI.
             "id": "uuidv4",
             "brief": "string",
             "specialNeeds": "string",
-            "lawyerID": "uuidv4",
+                        "requester": {
+                "id": "uuidv4",
+                "name": "string",
+            },
+            "lawyer": {
+                "id": "uuidv4",
+                "name": "string",
+            },
+            "approver": {
+                "id": "uuidv4",
+                "name": "string",
+            },
             "ruleRelated": true,
             "note": "string",
             "statusID": 1
@@ -129,7 +154,18 @@ Retorna um pedido de AJI.
         "id": "uuidv4",
         "brief": "string",
         "specialNeeds": "string",
-        "lawyerID": "uuidv4",
+        "requester": {
+            "id": "uuidv4",
+            "name": "string",
+        },
+        "lawyer": {
+            "id": "uuidv4",
+            "name": "string",
+        },
+        "approver": {
+            "id": "uuidv4",
+            "name": "string",
+        },
         "ruleRelated": true,
         "note": "string",
         "statusID": 1
@@ -161,7 +197,18 @@ Atualiza um pedido de AJI.
         "id": "uuidv4",
         "brief": "string",
         "specialNeeds": "string",
-        "lawyerID": "uuidv4",
+        "requester": {
+            "id": "uuidv4",
+            "name": "string",
+        },
+        "lawyer": {
+            "id": "uuidv4",
+            "name": "string",
+        },
+        "approver": {
+            "id": "uuidv4",
+            "name": "string",
+        },
         "ruleRelated": true,
         "note": "string",
         "statusID": 1
