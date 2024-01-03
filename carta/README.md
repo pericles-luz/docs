@@ -36,6 +36,8 @@ Registra uma solicitação de Carta-Fiança.
 Se `authorizeDiscount` for `false`, não deve liberar o botão de finalizar solicitação.
 Os campos `lessor`, `administrator`, `letterValue` e `address` só devem ser editados pela secretária(permissão 1024).
 
+O campo `authorizeDiscount` deve ter o label `Autorizar desconto em folha?` e, no hint da interrogação, deve ter o texto `Autorizo o desconto em folha do total de despesas aportadas pelo Sindireceita, resultado da inadimplência relativa a esta Carta de Fiança Locatícia.`
+
 #### JSON de retorno
 
 ```json
