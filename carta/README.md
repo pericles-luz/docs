@@ -254,6 +254,26 @@ Retorna status 204.
 }
 ```
 
+### PUT /letterOfGuarantee/requests/distribute
+
+Distribui uma solicitação de Carta-Fiança. O botão `Distribuir...` só deve aparecer para advogado(permissão 2048) e só pode aparecer se a solicitação estiver no status SENT_TO_LEGAL_OPINION(10).
+
+No modal com o formulário para distribuição, deve ser exibido um campo para o usuário fazer alguma observação e um campo para selecionar o advogado(deve ser buscado em `/letterOfGuarantee/lawyers`).
+
+Também é importante destacar que o campo de observação deve ser opcional e o seu label deve ser "Observação".
+
+Retorna status 204.
+
+#### JSON de entrada
+    
+```json
+{
+    "id": "uuidv4",
+    "note": "Observação",
+    "lawyerID": "uuidv4"
+}
+```
+
 ### PUT /letterOfGuarantee/requests/legalOpinion
 
 Inclui o parecer jurídico a uma solicitação de Carta-Fiança. O botão de incluir parecer jurídico só deve aparecer para o advogado(permissão 2048) e só pode aparecer se a solicitação estiver no status SENT_TO_LEGAL_OPINION(10).
