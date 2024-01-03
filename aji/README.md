@@ -79,7 +79,7 @@ Cria um novo pedido de AJI.
         "brief": "string",
         "specialNeeds": "string",
         "lawyerID": "uuidv4",
-        "roleRelated": true,
+        "ruleRelated": true,
         "note": "string",
         "statusID": 1
     }
@@ -100,7 +100,7 @@ Retorna uma lista de pedidos de AJI.
             "brief": "string",
             "specialNeeds": "string",
             "lawyerID": "uuidv4",
-            "roleRelated": true,
+            "ruleRelated": true,
             "note": "string",
             "statusID": 1
         },
@@ -109,7 +109,7 @@ Retorna uma lista de pedidos de AJI.
             "brief": "string",
             "specialNeeds": "string",
             "lawyerID": "uuidv4",
-            "roleRelated": true,
+            "ruleRelated": true,
             "note": "string",
             "statusID": 1
         }
@@ -130,7 +130,7 @@ Retorna um pedido de AJI.
         "brief": "string",
         "specialNeeds": "string",
         "lawyerID": "uuidv4",
-        "roleRelated": true,
+        "ruleRelated": true,
         "note": "string",
         "statusID": 1
     }
@@ -162,7 +162,7 @@ Atualiza um pedido de AJI.
         "brief": "string",
         "specialNeeds": "string",
         "lawyerID": "uuidv4",
-        "roleRelated": true,
+        "ruleRelated": true,
         "note": "string",
         "statusID": 1
     }
