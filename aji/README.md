@@ -53,7 +53,7 @@ O botão `Analisar...` só deve ser mostrado se o status for `encaminhada(2)` e 
 
 ## Endpoints da API
 
-### POST /api/aji
+### POST /aji/requests
 
 Cria um novo pedido de AJI.
 
@@ -89,7 +89,7 @@ Cria um novo pedido de AJI.
 }
 ```
 
-### GET /api/aji
+### GET /aji/requests
 
 Retorna uma lista de pedidos de AJI.
 
@@ -142,7 +142,7 @@ Retorna uma lista de pedidos de AJI.
 }
 ```
 
-### GET /api/aji/{id}
+### GET /aji/requests/{id}
 
 Retorna um pedido de AJI.
 
@@ -173,7 +173,7 @@ Retorna um pedido de AJI.
 }
 ```
 
-### PUT /api/aji/{id}
+### PUT /aji/requests/{id}
 
 Atualiza um pedido de AJI.
 
@@ -216,7 +216,25 @@ Atualiza um pedido de AJI.
 }
 ```
 
-### PUT /api/aji/{id}/deferral
+### PUT /aji/requests/{id}/submit
+
+Encaminha um pedido de AJI.
+
+#### Parâmetros
+
+```json
+{
+    "note": "string"
+}
+```
+
+- `note` texto com no máximo 250 caracteres, não obrigatório;
+
+#### Retorno
+
+Não retorna dados. Retorna status 204.
+
+### PUT /aji/requests/{id}/deferral
 
 Deferir um pedido de AJI.
 
@@ -238,7 +256,7 @@ Deferir um pedido de AJI.
 
 Não retorna dados. Retorna status 204.
 
-### PUT /api/aji/{id}/cancel
+### PUT /aji/requests/{id}/cancel
 
 Cancela um pedido de AJI.
 
