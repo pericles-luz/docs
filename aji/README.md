@@ -32,7 +32,7 @@ O modal de encaminhamento deverá conter os seguintes campos:
 
 O modal de anexar documento deverá conter os seguintes campos:
 
-- `name` campo texto com no máximo 250 caracteres;
+- `title` campo texto com no máximo 250 caracteres;
 - `file` campo para upload de arquivo.
 
 ### Modal de cancelar pedido
@@ -274,3 +274,35 @@ Cancela um pedido de AJI.
 
 Não retorna dados. Retorna status 204.
 
+
+### POST /aji/requests/{id}/attachments/{type}
+
+Adiciona um anexo a uma solicitação de AJI. Importante observar que o anexo deve ser enviado em base64, num JSON onde conste também o título dado ao anexo.
+O arquivo pode ser PDF, PNG ou JPG.
+
+- `type` (obrigatório): Tipo de anexo. Podem ser:
+  - `7`: Documento a ser anexado ao pedido de AJI;
+
+#### payload de entrada
+
+```
+{
+  "title": "nome do arquivo",
+  "file": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAMSURBVBhXY3growIAAycBLhVrvukAAAAASUVORK5CYII="
+}
+```
+
+#### JSON de retorno
+
+```json
+{
+  "data": {
+    "attachmentID": "uuidv4",
+    "hash": "hash em sha256 do arquivo",
+    "description": "descrição do arquivo",
+    "createdAt": "2017-12-25 00:00:00",
+    "size": 123456
+  },
+  "message": "texto a ser exibido ao usuário"
+}
+```
