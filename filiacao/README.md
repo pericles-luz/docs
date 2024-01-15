@@ -149,7 +149,7 @@ Cancela a filiação de um pré-filiado.
 
 O status do retorno deve ser 204.
 
-### POST /affiliations/pre-affiliations/{id}/confirm
+### PUT /affiliations/pre-affiliations/{id}/confirm
 
 Confirma a filiação de um pré-filiado.
 

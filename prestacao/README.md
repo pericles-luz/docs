@@ -121,9 +121,9 @@ Retorna uma lista de classificações disponíveis para o usuário.
 }
 ```
 
-### GET /accountabilities/:id/classifications
+### GET /accountabilities/classifications
 
-Retorna a lista de classificações para a prestação passada como parâmetro. A lista servirá para montar a tabela do dashboard.
+Retorna a lista de classificações existentes. A lista servirá para montar a tabela do dashboard.
 
 #### Retorno
 
@@ -147,6 +147,22 @@ Retorna a lista de classificações para a prestação passada como parâmetro. 
             "total": 200000
         }
     ]
+}
+```
+
+### GET /accountabilities/{id}/consoidated
+
+Retorna a prestação de contas consolidada. A lista servirá para montar o gráfico do dashboard.
+
+#### Retorno
+
+```json
+{
+    "data": {
+        "id": "uuidv4",
+        "name": "Prestação de contas 1",
+        "value": 300000
+    }
 }
 ```
 
