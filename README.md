@@ -11,6 +11,7 @@ Documentações
 - [Carta-fiança](carta/README.md)
 - [Prestação de Contas](prestacao/README.md)
 - [AJI](aji/README.md)
+- [Filiação](filiacao/README.md)
 
 
 ## Rotas de autenticação a serem utilizadas para todas as APIs
