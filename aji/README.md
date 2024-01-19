@@ -275,6 +275,20 @@ Cancela um pedido de AJI.
 Não retorna dados. Retorna status 204.
 
 
+### PUT /aji/requests/{id}/requestDocument
+
+Solicita um documento para um pedido de AJI.
+O status da AJI mudará para `solicitado documento(23)`.
+
+#### Parâmetros
+
+```json
+{
+    "note": "string"
+}
+```
+
+
 ### POST /aji/requests/{id}/attachments/{type}
 
 Adiciona um anexo a uma solicitação de AJI. Importante observar que o anexo deve ser enviado em base64, num JSON onde conste também o título dado ao anexo.
