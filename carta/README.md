@@ -305,6 +305,7 @@ Também é importante destacar que o payload não é um JSON, mas apenas o arqui
 - `type` (obrigatório): Tipo de anexo. Podem ser:
   - `5`: Contrato de locação
   - `6`: Carta-fiança assinada
+  - `8`: Parecer jurídico
 
 #### payload de entrada
 
