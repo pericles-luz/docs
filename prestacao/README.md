@@ -181,6 +181,7 @@ Adiciona um novo item à classificação passada como parâmetro. Essa rota só 
   "competenceDate": "2020-10-01",
   "note": "Conta de telefone",
   "amount": 100000,
+  "installments": 1,
   "interestAmount": 1000,
   "discountAmount": 500
 }
@@ -201,6 +202,7 @@ Adiciona um novo item à classificação passada como parâmetro. Essa rota só 
         "paymentDate": "2020-10-01",
         "note": "Conta de telefone",
         "amount": 100000,
+        "installments": 1,
         "interestAmount": 1000,
         "discountAmount": 500
     }
@@ -227,6 +229,7 @@ Edita o item passado como parâmetro.
   "competenceDate": "2020-10-01",
   "note": "Conta de telefone",
   "amount": 100000,
+  "installments": 1,
   "interestAmount": 1000,
   "discountAmount": 500
 }
@@ -247,6 +250,7 @@ Edita o item passado como parâmetro.
         "competenceDate": "2020-10-01",
         "note": "Conta de telefone",
         "amunt": 100000,
+        "installments": 1,
         "interestAmount": 1000,
         "discountAmount": 500
     }
@@ -274,6 +278,7 @@ Retorna a lista de itens para a classificação passada como parâmetro. A lista
             "competenceDate": "2020-10-01",
             "note": "Conta de telefone",
             "amount": 100000,
+            "installments": 1,
             "interestAmount": 1000,
             "discountAmount": 500
         },
@@ -289,6 +294,7 @@ Retorna a lista de itens para a classificação passada como parâmetro. A lista
             "competenceDate": "2020-10-01",
             "note": "Conta de telefone",
             "amount": 100000,
+            "installments": 1,
             "interestAmount": 1000,
             "discountAmount": 500
         }
