@@ -192,7 +192,7 @@ Adiciona um novo item à classificação passada como parâmetro. Essa rota só 
   "note": "Conta de telefone",
   "amount": 100000,
   "installments": 1,
-  "interestAmount": 1000,
+  "fineAndInterest": 1000,
   "discountAmount": 500
 }
 ```
@@ -213,7 +213,7 @@ Adiciona um novo item à classificação passada como parâmetro. Essa rota só 
         "note": "Conta de telefone",
         "amount": 100000,
         "installments": 1,
-        "interestAmount": 1000,
+        "fineAndInterest": 1000,
         "discountAmount": 500
     }
 }
@@ -240,7 +240,7 @@ Edita o item passado como parâmetro.
   "note": "Conta de telefone",
   "amount": 100000,
   "installments": 1,
-  "interestAmount": 1000,
+  "fineAndInterest": 1000,
   "discountAmount": 500
 }
 ```
@@ -261,7 +261,7 @@ Edita o item passado como parâmetro.
         "note": "Conta de telefone",
         "amunt": 100000,
         "installments": 1,
-        "interestAmount": 1000,
+        "fineAndInterest": 1000,
         "discountAmount": 500
     }
 }
@@ -289,7 +289,7 @@ Retorna a lista de itens para a classificação passada como parâmetro. A lista
             "note": "Conta de telefone",
             "amount": 100000,
             "installments": 1,
-            "interestAmount": 1000,
+            "fineAndInterest": 1000,
             "discountAmount": 500
         },
         {
@@ -305,7 +305,7 @@ Retorna a lista de itens para a classificação passada como parâmetro. A lista
             "note": "Conta de telefone",
             "amount": 100000,
             "installments": 1,
-            "interestAmount": 1000,
+            "fineAndInterest": 1000,
             "discountAmount": 500
         }
     ]
