@@ -294,6 +294,18 @@ Retorna status 204.
 }
 ```
 
+### PUT /letterOfGuarantee/requests/{id}/requestDocument
+
+Solicita um documento para um pedido de Carta-Fiança.
+O status da Carta-Fiança mudará para `solicitado documento(23)`.
+
+#### Parâmetros
+
+```json
+{
+    "note": "string"
+}
+```
 ## Rotas para uploads de arquivos
 
 
@@ -305,6 +317,7 @@ Também é importante destacar que o payload não é um JSON, mas apenas o arqui
 - `type` (obrigatório): Tipo de anexo. Podem ser:
   - `5`: Contrato de locação
   - `6`: Carta-fiança assinada
+  - `7`: Documento a ser anexado ao pedido de carta-fiança
   - `8`: Parecer jurídico
 
 #### payload de entrada

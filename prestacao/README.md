@@ -65,6 +65,15 @@ O formulário para análise da prestação de contas deve ter:
 - O botão para chamar esse formulário deve ter o label `Análise DFA...` e deve estar visível apenas se o status da prestação for `encaminhada para análise(2)`;
 - Apenas usuários com a rule `FINANCE(64)` podem ver o botão e acessar o formulário;
 
+## Status possíveis
+
+Uma prestação de contas pode ter os seguintes status:
+
+- `Iniciada(1)`: desde que a Prestação é criada até quando é enviada para análise;
+- `Enviada(2)`: quando a Prestação é enviada para análise;
+- `Aprovada(3)`: quando a Prestação é aprovada pela DFA;
+- `Rejeitada(5)`: quando a Prestação é rejetada pela DFA;
+
 ## Endpoints da API
 
 ### GET /accountabilities
