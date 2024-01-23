@@ -73,6 +73,7 @@ Uma prestação de contas pode ter os seguintes status:
 - `Enviada(2)`: quando a Prestação é enviada para análise;
 - `Aprovada(3)`: quando a Prestação é aprovada pela DFA;
 - `Rejeitada(5)`: quando a Prestação é rejetada pela DFA;
+- `Finalizada(21)`: quando a Prestação é finalizada e não pode mais ser alterada.
 
 ## Endpoints da API
 
