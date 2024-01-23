@@ -193,7 +193,7 @@ Adiciona um novo item à classificação passada como parâmetro. Essa rota só 
   "amount": 100000,
   "installments": 1,
   "fineAndInterest": 1000,
-  "discountAmount": 500
+  "discount": 500
 }
 ```
 
@@ -214,7 +214,7 @@ Adiciona um novo item à classificação passada como parâmetro. Essa rota só 
         "amount": 100000,
         "installments": 1,
         "fineAndInterest": 1000,
-        "discountAmount": 500
+        "discount": 500
     }
 }
 ```
@@ -241,7 +241,7 @@ Edita o item passado como parâmetro.
   "amount": 100000,
   "installments": 1,
   "fineAndInterest": 1000,
-  "discountAmount": 500
+  "discount": 500
 }
 ```
 
@@ -262,7 +262,7 @@ Edita o item passado como parâmetro.
         "amunt": 100000,
         "installments": 1,
         "fineAndInterest": 1000,
-        "discountAmount": 500
+        "discount": 500
     }
 }
 ```
@@ -290,7 +290,7 @@ Retorna a lista de itens para a classificação passada como parâmetro. A lista
             "amount": 100000,
             "installments": 1,
             "fineAndInterest": 1000,
-            "discountAmount": 500
+            "discount": 500
         },
         {
             "id": "uuidv4",
@@ -306,7 +306,7 @@ Retorna a lista de itens para a classificação passada como parâmetro. A lista
             "amount": 100000,
             "installments": 1,
             "fineAndInterest": 1000,
-            "discountAmount": 500
+            "discount": 500
         }
     ]
 }
