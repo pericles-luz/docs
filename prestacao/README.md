@@ -222,7 +222,7 @@ Adiciona um novo item à classificação passada como parâmetro. Essa rota só 
 - `originID` deve ser a conta corrente de onde sairá ou para onde irá o valor do item. Deve ser uma conta corrente da unidade sindical e pode ser buscada em `/accounts/{unionUnitID}`.
 - `classificationID` deve ser a classificação do item. Deve ser uma classificação da prestação e pode ser buscada em `/accountabilities/:id/classifications`.
 
-### PUT /accountabilities/items/:id
+### PUT /accountabilities/:accountabilityID/items/:id
 
 Edita o item passado como parâmetro.
 
