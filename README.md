@@ -503,3 +503,121 @@ Altera um valor de auxílio deslocamento.
 ### DELETE /movingBudgets/{id}
 
 Exclui um valor de auxílio deslocamento.
+
+
+### GET /accounts
+
+Retorna as contas correntes cadastradas para o usuário. Retorna também as chaves pix cadastradas para o usuário.
+O campo `kind` indica se é uma conta corrente ou uma chave pix. 1 para conta corrente e 2 para chave pix.
+
+#### JSON de retorno
+
+```json
+{
+  "data": [{
+			"account": "567876",
+			"accountDV": "9",
+			"accountID": "uuidv4",
+			"bank": "001",
+			"branch": "3456",
+			"branchDV": "3",
+			"type": 1,
+      "kind": 1
+		},
+    {
+      "key": "12345678901",
+      "id": "uuidv4",
+      "kind": 2
+    }]
+}
+```
+
+### GET /accounts/{unionUnitID}
+
+Retorna as contas correntes cadastradas para a unidade sindical passada como parâmetro.
+
+#### JSON de retorno
+
+```json
+{
+  "data": [{
+			"account": "567876",
+			"accountDV": "9",
+			"accountID": "uuidv4",
+			"bank": "001",
+			"branch": "3456",
+			"branchDV": "3",
+			"type": 1,
+      "kind": 1
+		}]
+}
+```
+
+### POST /accounts
+
+Grava uma conta corrente.
+
+#### JSON de retorno
+
+```json
+{
+  "data": {
+			"account": "567876",
+			"accountDV": "9",
+			"accountID": "uuidv4",
+			"bank": "001",
+			"branch": "3456",
+			"branchDV": "3",
+			"type": 1,
+      "kind": 1
+		}
+}
+```
+
+### POST /pix
+
+Grava uma chave pix.
+
+#### Parâmetros
+
+```json
+{
+  "data": {
+      "key": "12345678901",
+    }
+}
+```
+
+#### JSON de retorno
+
+```json
+{
+  "data": {
+      "key": "12345678901",
+      "id": "uuidv4",
+      "kind": 2
+    }
+}
+```
+
+### GET /pix/:id
+
+Retorna uma chave pix.
+
+#### JSON de retorno
+
+```json
+{
+  "data": {
+      "key": "12345678901",
+      "id": "uuidv4",
+      "kind": 2
+    }
+}
+```
+
+### DELETE /pix/:id
+
+Exclui uma chave pix.
+
+Retorna 204 em caso de sucesso.

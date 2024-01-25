@@ -480,66 +480,6 @@ Retorna o histórico de uma requisição.
 }
 ```
 
-### GET /accounts
-
-Retorna as contas correntes cadastradas para o usuário.
-
-#### JSON de retorno
-
-```json
-{
-  "data": [{
-			"account": "567876",
-			"accountDV": "9",
-			"accountID": "uuidv4",
-			"bank": "001",
-			"branch": "3456",
-			"branchDV": "3",
-			"type": 1
-		}]
-}
-```
-
-### GET /accounts/{unionUnitID}
-
-Retorna as contas correntes cadastradas para a unidade sindical passada como parâmetro.
-
-#### JSON de retorno
-
-```json
-{
-  "data": [{
-			"account": "567876",
-			"accountDV": "9",
-			"accountID": "uuidv4",
-			"bank": "001",
-			"branch": "3456",
-			"branchDV": "3",
-			"type": 1
-		}]
-}
-```
-
-### POST /accounts
-
-Grava uma conta corrente.
-
-#### JSON de retorno
-
-```json
-{
-  "data": {
-			"account": "567876",
-			"accountDV": "9",
-			"accountID": "uuidv4",
-			"bank": "001",
-			"branch": "3456",
-			"branchDV": "3",
-			"type": 1
-		}
-}
-```
-
 ### GET /file/{id}
 
 Retorna um arquivo em seu formato original, mas deve ser enviado o header `Authorization` com o token de acesso.
