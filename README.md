@@ -319,6 +319,47 @@ Grava um centro de custo.
 - `isPublic` (obrigatório): Indica se o centro de custo é público
 - `isArticle132` (obrigatório): Indica se o centro de custo é do artigo 132
 
+### GET /costCenters/{id}/persons
+
+Lista as pessoas associadas a um centro de custo
+
+#### JSON de retorno
+
+```json
+{
+  "data": [
+    {
+      "id": "uuidv4",
+      "name": "Joaquim da Silva"
+    },
+    {
+      "id": "uuidv4",
+      "name": "Joana Cruz"
+    }
+  ]
+}
+```
+
+### POST /costCenters/{id}/addPerson
+
+Adiciona uma pessoa a um centro de custo
+
+#### parâmetros
+
+```json
+{
+  "personID": "uuidv4"
+}
+```
+
+Estando tudo certo, retorna 204.
+
+### DELETE /costCenters/{id}/persons/{personID}
+
+Retira uma pessoa de um centro de custo.
+
+Estando tudo certo, retorna 204.
+
 ### GET /persons/{cpfOrName}
 
 Retorna as pessoas que atendam ao filtro.
