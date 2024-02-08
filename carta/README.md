@@ -306,6 +306,61 @@ O status da Carta-Fiança mudará para `solicitado documento(23)`.
     "note": "string"
 }
 ```
+
+### GET /letterOfGuarantee/filter
+
+Retorna uma lista de solicitações de Carta-Fiança filtradas.
+As variáveis de filtro são:
+- start: Data de início da solicitação
+- finish: Data de término da solicitação
+- number: Número da solicitação
+- name: Parte do nome ou CPF do solicitante
+
+#### JSON de retorno
+
+```json
+{
+    "data": [
+        {
+            "id": "uuidv4",
+            "rentalValue": 200000,
+            "start": "2020-01-01",
+            "finish": "2020-12-31",
+            "accountID": "uuidv4",
+            "authorizeDiscount": true,
+            "status": 2,
+            "lessor": "João da Silva",
+            "administrator": "Joaquim da Silva",
+            "address": "Rua da Consolação, 123, Bairro da Consolação, São Paulo, SP",
+            "letterValue": 200000,
+            "number": 23,
+            "requester": {
+                "id": "uuidv4",
+                "name": "João da Silva"
+            }
+        },
+        {
+            "id": "uuidv4",
+            "rentalValue": 200000,
+            "start": "2020-01-01",
+            "finish": "2020-12-31",
+            "accountID": "uuidv4",
+            "authorizeDiscount": true,
+            "lessor": "João da Silva",
+            "administrator": "Joaquim da Silva",
+            "address": "Rua da Consolação, 123, Bairro da Consolação, São Paulo, SP",
+            "letterValue": 200000,
+            "status": 2,
+            "number": 23,
+            "requester": {
+                "id": "uuidv4",
+                "name": "João da Silva"
+            }
+        }
+    ]
+}
+```
+
 ## Rotas para uploads de arquivos
 
 
