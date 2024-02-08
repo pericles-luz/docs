@@ -182,7 +182,8 @@ Informa que a compra foi realizada.
 {
   "id": "65083027-c978-498d-974b-9ee04baf7b35",
   "BuyingDate": "2020-01-01",
-  "note": "Compra conforme solicitado"
+  "note": "Compra conforme solicitado",
+  "ticketNumber": "1234567890"
 }
 ```
 

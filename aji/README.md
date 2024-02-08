@@ -288,6 +288,18 @@ O status da AJI mudará para `solicitado documento(23)`.
 }
 ```
 
+### PUT /aji/requests/{id}/numberDAJ
+
+Adiciona o número do processo ao pedido de AJI.
+
+#### Parâmetros
+
+```json
+{
+    "numberDAJ": "string"
+}
+```
+
 
 ### POST /aji/requests/{id}/attachments/{type}
 

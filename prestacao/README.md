@@ -104,6 +104,33 @@ Retorna uma lista de prestação de contas disponíveis para o usuário.
 }
 ```
 
+### GET /unionUnits/{id}/accountabilities
+
+Retorna uma lista de prestação de contas disponíveis para a unidade sindical.
+
+#### Retorno
+
+```json
+{
+    "data": [
+        {
+            "id": 1,
+            "description": "Prestação de contas 2",
+            "date": 2020-10-01,
+            "statusID": 1,
+            "status": "open"
+        },
+        {
+            "id": 2,
+            "description": "Prestação de contas 1",
+            "year": 2020-09-01,
+            "statusID": 100,
+            "status": "closed"
+        }
+    ]
+}
+```
+
 ### GET /accountabilities/classifications
 
 Retorna uma lista de classificações disponíveis para o usuário.
