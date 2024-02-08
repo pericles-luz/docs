@@ -300,6 +300,17 @@ Adiciona o número do processo ao pedido de AJI.
 }
 ```
 
+### PUT /aji/requests/{id}/distribute
+
+Distribui um pedido de AJI para um advogado.
+
+#### Parâmetros
+
+```json
+{
+    "lawyerID": "uuidv4"
+}
+```
 
 ### POST /aji/requests/{id}/attachments/{type}
 
