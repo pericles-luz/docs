@@ -12,6 +12,7 @@ Documentações
 - [Prestação de Contas](prestacao/README.md)
 - [AJI](aji/README.md)
 - [Filiação](filiacao/README.md)
+- [Demonstrativo IRPF](demonstrativo/README.md)
 
 
 ## Rotas de autenticação a serem utilizadas para todas as APIs

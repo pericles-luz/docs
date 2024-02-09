@@ -312,6 +312,46 @@ Distribui um pedido de AJI para um advogado.
 }
 ```
 
+
+### GET /aji/filter
+
+Retorna uma lista de solicitações de Carta-Fiança filtradas.
+As variáveis de filtro são:
+- start: Data de início da solicitação
+- finish: Data de término da solicitação
+- number: Número da solicitação
+- name: Parte do nome ou CPF do solicitante
+
+#### JSON de retorno
+    
+```json
+{
+"data": [
+    {
+    "id": "uuidv4",
+    "number": "string",
+    "requester": {
+        "id": "uuidv4",
+        "name": "string",
+        "cpf": "string"
+    },
+    "statusID": 1
+    },
+    {
+    "id": "uuidv4",
+    "number": "string",
+    "requester": {
+        "id": "uuidv4",
+        "name": "string",
+        "cpf": "string"
+    },
+    "statusID": 1
+    }
+  ]
+}
+```
+
+
 ### POST /aji/requests/{id}/attachments/{type}
 
 Adiciona um anexo a uma solicitação de AJI. Importante observar que o anexo deve ser enviado em base64, num JSON onde conste também o título dado ao anexo.
