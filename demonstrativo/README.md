@@ -41,6 +41,8 @@ Retorna os dados para o demonstrativo de IRPF de uma pessoa.
 {
   "id": 1,
   "name": "Ação 1",
+  "months": 12,
+  "courtOrder": "0243619-47.2021.4.01.9198",
   "main": 200000,
   "interest": 10000,
   "file": "/documents/00000000191/1/A2C542AE"
@@ -49,6 +51,8 @@ Retorna os dados para o demonstrativo de IRPF de uma pessoa.
 
 - `id`: Identificador da ação
 - `name`: Nome da ação
+- `courtOrder`: Número do precatório
+- `months`: Número de meses
 - `main`: Valor principal recebido
 - `interest`: Valor de juros recebido
 - `file`: URL para download do arquivo PDF com o demonstrativo de IRPF
