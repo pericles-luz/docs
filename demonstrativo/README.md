@@ -78,15 +78,15 @@ Lista todas as ações para as quais o usuário tenha recebido precatórios.
   - `id`: Identificador do proprietário
   - `name`: Nome do proprietário
 
-### GET /irpf/:id/:cpf/data
+### GET /persons/:id/irpf
 
-Retorna os dados para o demonstrativo de IRPF de uma pessoa.
+Retorna os dados para o demonstrativo de IRPF de uma pessoa cujo ID é fornecido.
 
 #### Retorno
 
 ```json
 {
-  "id": 1,
+  "id": "uuidv4",
   "name": "Ação 1",
   "months": 12,
   "courtOrder": "0243619-47.2021.4.01.9198",
@@ -99,7 +99,7 @@ Retorna os dados para o demonstrativo de IRPF de uma pessoa.
 }
 ```
 
-- `id`: Identificador da ação
+- `id`: Identificador do demonstrativo
 - `name`: Nome da ação
 - `courtOrder`: Número do precatório
 - `issuanceStart`: Data de início do intervalo de expedição do precatório
