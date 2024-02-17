@@ -78,7 +78,7 @@ Lista todas as ações para as quais o usuário tenha recebido precatórios.
   - `id`: Identificador do proprietário
   - `name`: Nome do proprietário
 
-### GET /persons/:id/irpf
+### GET /irpf
 
 Retorna os dados para o demonstrativo de IRPF de uma pessoa cujo ID é fornecido.
 
