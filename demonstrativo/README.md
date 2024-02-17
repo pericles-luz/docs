@@ -6,7 +6,7 @@ O objetivo desta API é fornecer os demonstrativos de IRPF, refferentes ao receb
 
 ## Endpoints
 
-### GET /irpf/:cpf
+### GET /irpf
 
 Lista todas as ações para as quais o usuário tenha recebido precatórios.
 
@@ -78,7 +78,7 @@ Lista todas as ações para as quais o usuário tenha recebido precatórios.
   - `id`: Identificador do proprietário
   - `name`: Nome do proprietário
 
-### GET /irpf
+### GET /irpf/:id/statements
 
 Retorna os dados para o demonstrativo de IRPF de uma pessoa cujo ID é fornecido.
 
