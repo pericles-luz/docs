@@ -383,3 +383,24 @@ Adiciona uma análise à prestação de contas passada como parâmetro.
 
 - `accepted` (obrigatório): Indica se a prestação foi aceita ou não;
 - `note` (opcional): Observações sobre a análise. Se accepted for false, esta observação é obrigatória.
+
+### GET /accountabilities/{id}/history
+
+Retorna o histórico de uma prestação de contas.
+
+#### JSON de retorno
+
+```json
+{
+  "data": [
+    {
+      "requestHistoryID": "uuidv4",
+      "requestID": "uuidv4",
+      "dateTime": "2020-02-20 20:02:00",
+      "action": "Ação realizada",
+      "notes": "Observações",
+      "actor": "Nome do usuário que realizou a ação"
+    }
+  ]
+}
+```
