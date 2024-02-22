@@ -93,16 +93,18 @@ Retorna uma lista de prestação de contas disponíveis para o usuário.
 {
     "data": [
         {
-            "id": 1,
-            "description": "Prestação de contas 2",
+            "id": "uidv4",
+            "unionUnitID": "uuidv4",
+            "unionUnitName": "Prestação de contas 2",
             "date": 2020-10-01,
             "statusID": 1,
             "status": "open"
         },
         {
-            "id": 2,
-            "description": "Prestação de contas 1",
-            "year": 2020-09-01,
+            "id": "uidv4",
+            "unionUnitID": "uuidv4",
+            "unionUnitName": "Prestação de contas 1",
+            "date": 2020-09-01,
             "statusID": 100,
             "status": "closed"
         }
@@ -120,16 +122,18 @@ Retorna uma lista de prestação de contas disponíveis para a unidade sindical.
 {
     "data": [
         {
-            "id": 1,
-            "description": "Prestação de contas 2",
+            "id": "uidv4",
+            "unionUnitID": "uuidv4",
+            "unionUnitName": "Prestação de contas 2",
             "date": 2020-10-01,
             "statusID": 1,
             "status": "open"
         },
         {
-            "id": 2,
-            "description": "Prestação de contas 1",
-            "year": 2020-09-01,
+            "id": "uidv4",
+            "unionUnitID": "uuidv4",
+            "unionUnitName": "Prestação de contas 1",
+            "date": 2020-09-01,
             "statusID": 100,
             "status": "closed"
         }
@@ -414,8 +418,8 @@ Retorna o histórico de uma prestação de contas.
 {
   "data": [
     {
-      "requestHistoryID": "uuidv4",
-      "requestID": "uuidv4",
+      "id": "uuidv4",
+      "accountabilityID": "uuidv4",
       "dateTime": "2020-02-20 20:02:00",
       "action": "Ação realizada",
       "notes": "Observações",
