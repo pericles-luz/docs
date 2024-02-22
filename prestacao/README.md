@@ -12,7 +12,13 @@ Nesta tabela deve haver três colunas:
 - Uma com o valor consolidado da classificação;
 - Uma coluna de ações, onde haverá um botão Abrir..., que abrirá um modal com o wizard, já na página desta classificação.
 
-Também haverá um combobox onde será possível selecionar a prestação que se deseja visualizar.
+## Tela inicial
+
+Terá uma tabela com as prestações de contas disponíveis para o usuário. A tabela deve ter as seguintes colunas:
+
+- Uma com a descrição da prestação;
+- Uma com a data da prestação;
+- Uma com o status da prestação.
 
 ## Wizard
 
@@ -367,6 +373,20 @@ data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs
   "message": "texto a ser exibido ao usuário"
 }
 ```
+
+### POST /accountabilities/:id/sendToAnalysis
+
+Envia a prestação de contas para análise.
+
+#### Parâmetros
+
+```json
+{
+  "note": "Observações sobre a prestação de contas"
+}
+```
+
+Retorna status 204 ou 400 com o erro.
 
 ### POST /accountabilities/:id/analysis
 
