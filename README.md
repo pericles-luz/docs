@@ -574,7 +574,7 @@ O campo `kind` indica se é uma conta corrente ou uma chave pix. 1 para conta co
 }
 ```
 
-### GET /accounts/{unionUnitID}
+### GET /unionUnits/{unionUnitID}/accounts
 
 Retorna as contas correntes cadastradas para a unidade sindical passada como parâmetro.
 
@@ -598,6 +598,27 @@ Retorna as contas correntes cadastradas para a unidade sindical passada como par
 ### POST /accounts
 
 Grava uma conta corrente.
+
+#### JSON de retorno
+
+```json
+{
+  "data": {
+			"account": "567876",
+			"accountDV": "9",
+			"accountID": "uuidv4",
+			"bank": "001",
+			"branch": "3456",
+			"branchDV": "3",
+			"type": 1,
+      "kind": 1
+		}
+}
+```
+
+### POST /unionUnits/{unionUnitID}/accounts
+
+Grava uma conta corrente de unidade sindical.
 
 #### JSON de retorno
 
