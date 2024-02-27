@@ -207,7 +207,24 @@ Retorna status 204.
 
 ### PUT /letterOfGuarantee/requests/approve
 
-Aprova uma solicitação de Carta-Fiança. O botão de aprovação só deve aparecer para a secretária(permissão 1024) e só pode aparecer se a solicitação estiver no status LEGALY_APPROVED(11).
+Aprova uma solicitação de Carta-Fiança. O botão de aprovação só deve aparecer para a secretária(permissão 1024) e só pode aparecer se a solicitação estiver no status CONSENTED(26).
+
+No modal com o formulário para aprovação, deve ser exibido um campo para o usuário fazer alguma observação.
+Também é importante destacar que o campo de observação deve ser opcional e o seu label deve ser "Observação".
+
+Retorna status 204.
+
+#### JSON de entrada
+    
+```json
+{
+    "note": "Observação"
+}
+```
+
+### PUT /letterOfGuarantee/requests/consent
+
+Dá anuância a uma solicitação de Carta-Fiança. O botão de ciência só deve aparecer para o diretor financeiro(permissão 64) e para o presidente(permissão 32) e pode aparecer a qualquer momento.
 
 No modal com o formulário para aprovação, deve ser exibido um campo para o usuário fazer alguma observação.
 Também é importante destacar que o campo de observação deve ser opcional e o seu label deve ser "Observação".
@@ -298,6 +315,7 @@ Retorna status 204.
 
 Solicita um documento para um pedido de Carta-Fiança.
 O status da Carta-Fiança mudará para `solicitado documento(23)`.
+O botão de solicitar documento só deve aparecer para a secretária(permissão 1024).
 
 #### Parâmetros
 
