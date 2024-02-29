@@ -13,6 +13,7 @@ Documentações
 - [AJI](aji/README.md)
 - [Filiação](filiacao/README.md)
 - [Demonstrativo IRPF](demonstrativo/README.md)
+- [Agendamento](agendamento/README.md)
 
 
 ## Rotas de autenticação a serem utilizadas para todas as APIs
