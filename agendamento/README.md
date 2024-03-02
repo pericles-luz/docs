@@ -14,7 +14,7 @@ Os campos `start` e `end` devem ser formatados para exibição no formato `DD/MM
 
 O campo `link` deve ser exibido como um botão com o texto `Agendar` que ao ser clicado, redireciona o usuário para o link da reunião.
 
-### GET /schedules
+### GET /schedulings
 
 Lista as agendas disponíveis para agendamento.
 
