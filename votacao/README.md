@@ -66,12 +66,14 @@ Atualiza um votante. Será necessário ser usada sempre que um suplente assumir 
 
 ```json
 {
-  "able": true
+  "voterID": "uuidv4",
+  "unionUnitID": "uuidv4",
+  "location": 1,
+  "position": 1
 }
 ```
 
 - `voterID` - ID do votante
-- `able` - true para habilitar, false para desabilitar
 
 #### Retorno
 
@@ -87,6 +89,26 @@ Atualiza um votante. Será necessário ser usada sempre que um suplente assumir 
   "position": 1
 }
 ```
+
+### PUT `/voting/voters/{voterID}/enable`
+
+Habilita um votante. Só pode ser usada se o votante estiver desabilitado.
+
+Não há parâmetros.
+
+#### Retorno
+
+Não há retorno.
+
+### PUT `/voting/voters/{voterID}/disable`
+
+Desabilita um votante. Só pode ser usada se o votante estiver habilitado.
+
+Não há parâmetros.
+
+#### Retorno
+
+Não há retorno.
 
 ### GET `/voting/{eventID}/voters`
 
@@ -108,6 +130,14 @@ Lista os votantes registrados para um evento.
     }
 ]
 ```
+
+### DELETE `/voting/voters/{voterID}`
+
+Apaga um votante. Só pode ser usada se o votante estiver desabilitado.
+
+#### Retorno
+
+Retorna 204 se tudo der certo.
 
 ### POST `/voting/{eventID}/questions`
 
@@ -256,6 +286,14 @@ Mostra uma pergunta específica.
   ]
 }
 ```
+
+### DELETE `/voting/questions/{questionID}`
+
+Apaga uma pergunta. Só pode ser usada se a pergunta estiver no status criada(1) ou encerrada(20).
+
+#### Retorno
+
+Retorna 204 se tudo der certo.
 
 ### PUT `/voting/votings/{questionID}/open`
 

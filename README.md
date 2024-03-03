@@ -14,7 +14,7 @@ Documentações
 - [Filiação](filiacao/README.md)
 - [Demonstrativo IRPF](demonstrativo/README.md)
 - [Agendamento](agendamento/README.md)
-- [Votação](votacao/README.mds)
+- [Votação](votacao/README.md)
 
 
 ## Rotas de autenticação a serem utilizadas para todas as APIs
