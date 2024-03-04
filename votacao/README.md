@@ -29,7 +29,6 @@ Adiciona um votante.
 
 ```json
 {
-  "eventID": "uuidv4",
   "unionUnitID": "uuidv4",
   "personID": "uuidv4",
   "location": 1,
@@ -48,6 +47,7 @@ Adiciona um votante.
 ```json
 {
   "voterID": "uuidv4",
+  "eventID": "uuidv4",
   "unionUnitID": "uuidv4",
   "UnionUnitName": "string",
   "personID": "uuidv4",
@@ -80,6 +80,7 @@ Atualiza um votante. Será necessário ser usada sempre que um suplente assumir 
 ```json
 {
   "voterID": "uuidv4",
+  "eventID": "uuidv4",
   "unionUnitID": "uuidv4",
   "UnionUnitName": "string",
   "personID": "uuidv4",
@@ -118,8 +119,9 @@ Lista os votantes registrados para um evento.
 
 ```json
 [
-    {
+  {
     "voterID": "uuidv4",
+    "eventID": "uuidv4",
     "unionUnitID": "uuidv4",
     "UnionUnitName": "string",
     "personID": "uuidv4",
@@ -127,7 +129,7 @@ Lista os votantes registrados para um evento.
     "able": true,
     "location": 1,
     "position": 1
-    }
+  }
 ]
 ```
 
