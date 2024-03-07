@@ -17,11 +17,11 @@ Sistema a ser usado em eventos como CNRE e AGN para votações instantâneas.
 
 ## Rotas para o sistema
 
-- `/voting/{eventID}/voters` - Gerenciamento de votantes
-- `/voting/{eventID}/questions` - Gerenciamento de perguntas
-- `/voting/{eventID}/votings` - Gerenciamento de votações
+- `/events/{eventID}/voters` - Gerenciamento de votantes
+- `/events/{eventID}/questions` - Gerenciamento de perguntas
+- `/events/{eventID}/votings` - Gerenciamento de votações
 
-### POST `/voting/{eventID}/voters`
+### POST `/events/{eventID}/voters`
 
 Adiciona um votante.
 
@@ -58,7 +58,7 @@ Adiciona um votante.
 }
 ```
 
-### PUT `/voting/voters/{voterID}`
+### PUT `/events/voters/{voterID}`
 
 Atualiza um votante. Será necessário ser usada sempre que um suplente assumir o lugar de um titular. Caberá ao usuário do sistema definir que titular será substituído e por quem. Assim, o usuário deve habilitar o suplente e desabilitar o titular.
 
@@ -91,7 +91,7 @@ Atualiza um votante. Será necessário ser usada sempre que um suplente assumir 
 }
 ```
 
-### PUT `/voting/voters/{voterID}/enable`
+### PUT `/events/voters/{voterID}/enable`
 
 Habilita um votante. Só pode ser usada se o votante estiver desabilitado.
 
@@ -101,7 +101,7 @@ Não há parâmetros.
 
 Não há retorno.
 
-### PUT `/voting/voters/{voterID}/disable`
+### PUT `/events/voters/{voterID}/disable`
 
 Desabilita um votante. Só pode ser usada se o votante estiver habilitado.
 
@@ -111,7 +111,7 @@ Não há parâmetros.
 
 Não há retorno.
 
-### GET `/voting/{eventID}/voters`
+### GET `/events/{eventID}/voters`
 
 Lista os votantes registrados para um evento.
 
@@ -133,7 +133,7 @@ Lista os votantes registrados para um evento.
 ]
 ```
 
-### DELETE `/voting/voters/{voterID}`
+### DELETE `/events/voters/{voterID}`
 
 Apaga um votante. Só pode ser usada se o votante estiver desabilitado.
 
@@ -141,11 +141,11 @@ Apaga um votante. Só pode ser usada se o votante estiver desabilitado.
 
 Retorna 204 se tudo der certo.
 
-### POST `/voting/{eventID}/questions`
+### POST `/events/{eventID}/questions`
 
-Adiciona uma pergunta a uma votação. As perguntas podem ser de três tipos:
+Adiciona uma pergunta a uma votação. As perguntas podem ser de dois tipos:
 
-- Padrão(1): Pergunta cujas opções de resposta são definidas pelo sistema. Favorável, Contrário e Abstenção são as opções padrão.
+- Padrão(3): Pergunta cujas opções de resposta são definidas pelo sistema. Favorável, Contrário e Abstenção são as opções padrão.
 - Personalizada(2): Pergunta cujas opções de resposta são definidas pelo usuário.
 
 #### Parâmetros
@@ -183,7 +183,7 @@ Adiciona uma pergunta a uma votação. As perguntas podem ser de três tipos:
 
 ```json
 {
-  "questionID": "uuidv4",
+  "id": "uuidv4",
   "eventID": "uuidv4",
   "title": "string",
   "question": "string",
@@ -201,7 +201,7 @@ Adiciona uma pergunta a uma votação. As perguntas podem ser de três tipos:
 }
 ```
 
-### PUT `/voting/questions/{questionID}`
+### PUT `/events/{eventID}/questions/{questionID}`
 
 Atualiza uma pergunta. Só pode ser usada se a pergunta estiver no status criada(1) ou pausada(20).
 
@@ -228,7 +228,7 @@ Atualiza uma pergunta. Só pode ser usada se a pergunta estiver no status criada
 
 ```json
 {
-  "questionID": "uuidv4",
+  "id": "uuidv4",
   "eventID": "uuidv4",
   "title": "string",
   "question": "string",
@@ -246,7 +246,7 @@ Atualiza uma pergunta. Só pode ser usada se a pergunta estiver no status criada
 }
 ```
 
-### GET `/voting/{eventID}/questions`
+### GET `/events/{eventID}/questions`
 
 Lista as perguntas registradas para um evento.
 
@@ -263,7 +263,7 @@ Lista as perguntas registradas para um evento.
 ]
 ```
 
-### GET `voting/questions/{questionID}`
+### GET `/events/questions/{questionID}`
 
 Mostra uma pergunta específica.
 
@@ -289,7 +289,7 @@ Mostra uma pergunta específica.
 }
 ```
 
-### DELETE `/voting/questions/{questionID}`
+### DELETE `/events/questions/{questionID}`
 
 Apaga uma pergunta. Só pode ser usada se a pergunta estiver no status criada(1) ou encerrada(20).
 
