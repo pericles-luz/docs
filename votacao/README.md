@@ -297,7 +297,7 @@ Apaga uma pergunta. Só pode ser usada se a pergunta estiver no status criada(1)
 
 Retorna 204 se tudo der certo.
 
-### PUT `/voting/votings/{questionID}/open`
+### PUT `/events/questions/{id}/open`
 
 Abre uma votação para uma pergunta. Só pode ser usada se a pergunta estiver no status criada(1) ou pausada(20).
 
@@ -307,7 +307,7 @@ Não há parâmetros.
 
 Retorna 204 se tudo der certo.
 
-### PUT `/voting/votings/{questionID}/suspend`
+### PUT `/events/questions/{id}/suspend`
 
 Pausa uma votação para uma pergunta. Só pode ser usada se a pergunta estiver no status aberta(19).
 
@@ -317,7 +317,7 @@ Não há parâmetros.
 
 Retorna 204 se tudo der certo.
 
-### PUT `/voting/votings/{questionID}/close`
+### PUT `/events/questions/{id}/close`
 
 Fecha uma votação para uma pergunta. Só pode ser usada se a pergunta estiver no status aberta(19). Após fechar a votação, o sistema deve continuar na tela de votação até que o usuário decida encerrar.
 
@@ -327,9 +327,9 @@ Não há parâmetros.
 
 Retorna 204 se tudo der certo.
 
-### PUT `/voting/votings/{questionID}/end`
+### PUT `/events/questions/{id}/end`
 
-Encerra uma votação para uma pergunta. Só pode ser usada se a pergunta estiver no status fechada(21). Após encerrar a votação, o sistema deve mostrar o resultado.
+Encerra uma votação para uma pergunta. Só pode ser usada se a pergunta estiver no status fechada(28). Após encerrar a votação, o sistema deve mostrar o resultado.
 
 Não há parâmetros.
 
