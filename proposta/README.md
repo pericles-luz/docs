@@ -45,7 +45,7 @@ Adiciona uma proposta. O botão para nova proposta só deve aparecer se o campo 
 
 ```json
 {
-  "proposalID": "uuidv4",
+  "id": "uuidv4",
   "eventID": "uuidv4",
   "number": "string",
   "unionUnit": {
@@ -84,7 +84,7 @@ Atualiza uma proposta. O botão para editar proposta só deve aparecer se o camp
 
 ```json
 {
-  "proposalID": "uuidv4",
+  "id": "uuidv4",
   "eventID": "uuidv4",
   "number": "string",
   "unionUnit": {
@@ -120,7 +120,7 @@ Lista todas as propostas de um evento. Pode ser filtrada por número de proposta
 ```json
 [
   {
-    "proposalID": "uuidv4",
+    "id": "uuidv4",
     "number": "string",
     "eventID": "uuidv4",
     "unionUnit": {
@@ -145,7 +145,7 @@ Retorna uma proposta.
 
 ```json
 {
-  "proposalID": "uuidv4",
+  "id": "uuidv4",
   "eventID": "uuidv4",
   "number": "string",
   "unionUnit": {
