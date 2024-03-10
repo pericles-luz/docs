@@ -16,6 +16,7 @@ Documentações
 - [Agendamento](agendamento/README.md)
 - [Votação](votacao/README.md)
 - [Propostas de teses](proposta/README.md)
+- [Cadastro](cadastro/README.md)
 
 
 ## Rotas de autenticação a serem utilizadas para todas as APIs
