@@ -5,7 +5,7 @@
 - Os participantes devem ser registrados no sistema com antecedência.
 - A participação pode ser presencial ou remota.
 - Deve haver um gerenciamento de participantes onde se define quem pode participar. Quem tiver permissão Evento(16384) pode habilitar ou desabilitar a participação de uma pessoa.
-- No cadastro do evento é preciso definir a presença mínima para que a participaçãoo seja considerada válida.
+- No cadastro do evento é preciso definir a presença mínima para que a participação seja considerada válida.
 - A funcionalidade de portaria deve ser capaz de registrar a presença de um participante a partir de seu CPF.
 - A funcionalidade de portaria deve ser capaz de registrar a presença de um participante a partir de seu QRCode(preferido) ou código de barras.
 - Deve haver um módulo para verificação de quem está presente.
@@ -27,6 +27,7 @@
     - `Observações` (opcional): campo de texto livre
 - Deve haver um botão em detalhes para bloquear a participação do participante.
 - Deve haver um botão em detalhes para desbloquear a participação do participante.
+- Deve haver um botão na listagem de participantes para gerar etiquetas
 
 ### Portaria
 
@@ -40,6 +41,12 @@
 ### Verificação de presença
 
 - Deve haver uma tela onde se lista os participantes presentes e ausentes.
+
+### Relatório de presença
+
+- Deve haver um relatório de presença onde se mostra o precentual de presença e a lista de participantes.
+- Deve haver um botão para exportar o relatório em PDF.
+
 
 ## Rotas de API
 
