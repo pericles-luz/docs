@@ -51,12 +51,14 @@ Retorna a lista de unidades sindicais que podem participar do evento.
 #### Retorno
 
 ```json
-[
-    {
-        "id": "uuidv4",
-        "name": "Nome da unidade sindical"
-    }
-]
+{
+    "data": [
+        {
+            "id": "uuidv4",
+            "name": "Nome da unidade sindical"
+        }
+    ]
+}
 ```
 ### `POST /events/{eventID}/participants`
 
@@ -66,11 +68,13 @@ Cadastra um participante no evento.
 
 ```json
 {
-    "personId": "uuidv4",
-    "unionUnitId": "uuidv4",
-    "type": 1,
-    "local": 1,
-    "note": "Observações"
+    "data": {
+        "personId": "uuidv4",
+        "unionUnitId": "uuidv4",
+        "type": 1,
+        "local": 1,
+        "note": "Observações"
+    }
 }
 ```
 
@@ -84,12 +88,14 @@ Cadastra um participante no evento.
 
 ```json
 {
-    "id": "uuidv4",
-    "personId": "uuidv4",
-    "unionUnitId": "uuidv4",
-    "type": 1,
-    "local": 1,
-    "note": "Observações"
+    "data": {
+        "id": "uuidv4",
+        "personId": "uuidv4",
+        "unionUnitId": "uuidv4",
+        "type": 1,
+        "local": 1,
+        "note": "Observações"
+    }
 }
 ```
 
@@ -101,11 +107,13 @@ Edita um participante no evento.
 
 ```json
 {
-    "personId": "uuidv4",
-    "unionUnitId": "uuidv4",
-    "type": 1,
-    "local": 1,
-    "note": "Observações"
+    "data": {
+        "personId": "uuidv4",
+        "unionUnitId": "uuidv4",
+        "type": 1,
+        "local": 1,
+        "note": "Observações"
+    }
 }
 ```
 
@@ -113,12 +121,14 @@ Edita um participante no evento.
 
 ```json
 {
-    "id": "uuidv4",
-    "personId": "uuidv4",
-    "unionUnitId": "uuidv4",
-    "type": 1,
-    "local": 1,
-    "note": "Observações"
+    "data": {
+        "id": "uuidv4",
+        "personId": "uuidv4",
+        "unionUnitId": "uuidv4",
+        "type": 1,
+        "local": 1,
+        "note": "Observações"
+    }
 }
 ```
 
@@ -137,12 +147,14 @@ Retorna a lista de tipos de participação que podem participar do evento.
 #### Retorno
 
 ```json
-[
-    {
-        "id": 1,
-        "name": "Nome do tipo de participação"
-    }
-]
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Nome do tipo de participação"
+        }
+    ]
+}
 ```
 
 ### `PUT /events/participants/{participantID}/block`
@@ -153,7 +165,9 @@ Bloqueia a participação de um participante.
 
 ```json
 {
-    "note": "Motivo do bloqueio"
+    "data": {
+        "note": "Motivo do bloqueio"
+    }
 }
 ```
 #### Retorno
@@ -175,16 +189,18 @@ Retorna a lista de participantes do evento com a indicação de presença.
 #### Retorno
 
 ```json
-[
-    {
-        "personId": "uuidv4",
-        "personName": "uuidv4",
-        "unionUnitName": "uuidv4",
-        "typeDescription": "tipo",
-        "localDescription": "local",
-        "status": "status"
-    }
-]
+{
+    "data": [
+        {
+            "personId": "uuidv4",
+            "personName": "uuidv4",
+            "unionUnitName": "uuidv4",
+            "typeDescription": "tipo",
+            "localDescription": "local",
+            "status": "status"
+        }
+    ]
+}
 ```
 
 ### `GET /events/{eventID}/presences/logs`
@@ -194,12 +210,14 @@ Retorna a lista de logs de presença do evento, em ordem decrescente.
 #### Retorno
 
 ```json
-[
-    {
-        "personId": "uuidv4",
-        "personName": "uuidv4",
-        "status": "status",
-        "date": "2021-01-01T00:00:00Z"
-    }
-]
+{
+    "data": [
+        {
+            "personId": "uuidv4",
+            "personName": "uuidv4",
+            "status": "status",
+            "date": "2021-01-01T00:00:00Z"
+        }
+    ]
+}
 ```
