@@ -106,7 +106,7 @@ Cadastra um participante no evento.
 }
 ```
 
-### `PUT /events/participants/{participantID}`
+### `PUT /events/{eventID}/participants/{participantID}`
 
 Edita um participante no evento.
 
@@ -147,7 +147,7 @@ Exclui um participante no evento.
 
 Retorno 204 se tudo der certo.
 
-### `GET /events/{eventID}/participationTypes`
+### `GET /events/{eventID}/participats/types`
 
 Retorna a lista de tipos de participação que podem participar do evento.
 
@@ -172,6 +172,14 @@ Bloqueia a participação de um participante.
 
 ```json
 {
+    "note": "Motivo do desbloqueio"
+}
+```
+
+#### Parâmetros
+
+```json
+{
     "data": {
         "note": "Motivo do bloqueio"
     }
@@ -184,6 +192,14 @@ Retorna 204 se tudo der certo.
 ### `PUT /events/participants/{participantID}/unblock`
 
 Desbloqueia a participação de um participante.
+
+#### Parâmetros
+
+```json
+{
+    "note": "Motivo do desbloqueio"
+}
+```
 
 #### Retorno
 
