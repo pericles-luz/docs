@@ -75,13 +75,11 @@ Cadastra um participante no evento.
 
 ```json
 {
-    "data": {
-        "personId": "uuidv4",
-        "unionUnitId": "uuidv4",
-        "type": 1,
-        "local": 1,
-        "note": "Observações"
-    }
+    "personId": "uuidv4",
+    "unionUnitId": "uuidv4",
+    "type": 1,
+    "local": 1,
+    "note": "Observações"
 }
 ```
 
@@ -130,8 +128,14 @@ Edita um participante no evento.
 {
     "data": {
         "id": "uuidv4",
-        "personId": "uuidv4",
-        "unionUnitId": "uuidv4",
+        "person": {
+            "id": "uuidv4",
+            "name": "Nome do participante"
+        },
+        "unionUnit": {
+            "id": "uuidv4",
+            "name": "Nome da unidade sindical"
+        },
         "type": 1,
         "local": 1,
         "note": "Observações"
@@ -216,11 +220,26 @@ Retorna a lista de participantes do evento com a indicação de presença.
     "data": [
         {
             "personId": "uuidv4",
-            "personName": "uuidv4",
-            "unionUnitName": "uuidv4",
-            "typeDescription": "tipo",
-            "localDescription": "local",
-            "status": "status"
+            "person": {
+                "id": "uuidv4",
+                "name": "Nome do participante"
+            },
+            "unionUnit": {
+                "id": "uuidv4",
+                "name": "Nome da unidade sindical"
+            },
+            "type": {
+                "id": 1,
+                "name": "Nome do tipo de participação"
+            },
+            "local": {
+                "id": 1,
+                "name": "Presencial"
+            },
+            "status": {
+                "id": 1,
+                "name": "Presente"
+            }
         }
     ]
 }
@@ -236,11 +255,20 @@ Retorna a lista de logs de presença do evento, em ordem decrescente.
 {
     "data": [
         {
-            "personId": "uuidv4",
-            "personName": "uuidv4",
-            "status": "status",
+            "person": {
+                "id": "uuidv4",
+                "name": "Nome do participante"
+            },
+            "status": {
+                "id": 1,
+                "description": "Entrada"
+            },
             "date": "2021-01-01T00:00:00Z"
         }
     ]
 }
 ```
+
+### `GET /events/{eventID}/labels`
+
+Retorna PDF com etiquetas dos participantes.
