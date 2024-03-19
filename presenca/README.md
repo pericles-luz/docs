@@ -75,16 +75,16 @@ Cadastra um participante no evento.
 
 ```json
 {
-    "personId": "uuidv4",
-    "unionUnitId": "uuidv4",
+    "personID": "uuidv4",
+    "unionUnitID": "uuidv4",
     "type": 1,
     "local": 1,
     "note": "Observações"
 }
 ```
 
-- `personId` (obrigatório): ID do participante
-- `unionUnitId` (obrigatório): ID da unidade sindical
+- `personID` (obrigatório): ID do participante
+- `unionUnitID` (obrigatório): ID da unidade sindical
 - `type` (obrigatório): ID do tipo de participação
 - `local` (obrigatório): 1 - presencial, 2 - remoto
 - `note` (opcional): Observações
@@ -95,8 +95,8 @@ Cadastra um participante no evento.
 {
     "data": {
         "id": "uuidv4",
-        "personId": "uuidv4",
-        "unionUnitId": "uuidv4",
+        "personID": "uuidv4",
+        "unionUnitID": "uuidv4",
         "type": 1,
         "local": 1,
         "note": "Observações"
@@ -113,8 +113,8 @@ Edita um participante no evento.
 ```json
 {
     "data": {
-        "personId": "uuidv4",
-        "unionUnitId": "uuidv4",
+        "personID": "uuidv4",
+        "unionUnitID": "uuidv4",
         "type": 1,
         "local": 1,
         "note": "Observações"
@@ -219,7 +219,7 @@ Retorna a lista de participantes do evento com a indicação de presença.
 {
     "data": [
         {
-            "personId": "uuidv4",
+            "personID": "uuidv4",
             "person": {
                 "id": "uuidv4",
                 "name": "Nome do participante"
