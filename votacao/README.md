@@ -135,7 +135,7 @@ Lista os votantes registrados para um evento.
 
 ### DELETE `/events/voters/{voterID}`
 
-Apaga um votante. Só pode ser usada se o votante estiver desabilitado.
+Apaga um votante.
 
 #### Retorno
 
@@ -156,7 +156,7 @@ Adiciona uma pergunta a uma votação. As perguntas podem ser de dois tipos:
   "title": "string",
   "question": "string",
   "anonymous": true,
-  "type": 1,
+  "type": 3,
   "choices": 1,
   "options": [
     {
@@ -172,7 +172,7 @@ Adiciona uma pergunta a uma votação. As perguntas podem ser de dois tipos:
 - `title`: título da pergunta que será mostrado na tela e no relatório final
 - `question`: texto da pergunta que será mostrado na tela
 - `anonymous`: true para votação anônima, false para votação nominal
-- `type`: tipo da pergunta (1 - padrão, 2 - personalizada)
+- `type`: tipo da pergunta (3 - padrão, 4 - personalizada)
 - `choices`: número de respostas possíveis. Pode ser de 1 ao número de opções disponíveis.
 - `options`: opções de resposta para perguntas personalizadas
     - `option`: texto da opção
