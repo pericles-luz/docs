@@ -277,7 +277,7 @@ Retorna PDF com etiquetas dos participantes.
 
 Retorna HTML com as etiquetas dos participantes.
 
-### `GET /events/{eventID}/presences`
+### `GET /events/{eventID}/presences/total`
 
 Retorna lista de participantes com a quantidade de minutos que cada um esteve presente.
 
