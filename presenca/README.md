@@ -269,6 +269,31 @@ Retorna a lista de logs de presença do evento, em ordem decrescente.
 }
 ```
 
-### `GET /events/{eventID}/labels`
+### `GET /events/{eventID}/credentials`
 
 Retorna PDF com etiquetas dos participantes.
+
+#### Retorno
+
+Retorna HTML com as etiquetas dos participantes.
+
+### `GET /events/{eventID}/presences`
+
+Retorna lista de participantes com a quantidade de minutos que cada um esteve presente.
+
+#### Retorno
+
+```json
+{
+    "data": [
+        {
+            "personID": "uuidv4",
+            "person": {
+                "id": "uuidv4",
+                "name": "Nome do participante"
+            },
+            "minutes": 60
+        }
+    ]
+}
+```
